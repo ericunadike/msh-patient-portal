@@ -1023,7 +1023,7 @@
             <div class="registration-success" id="registrationSuccess">
                 <div class="success-animation"></div>
                 <h2>Registration Complete!</h2>
-                <p id="successMessage">Thank you for registering with us. We'll contact you shortly to verify your information.</p>
+                <p id="successMessage">Thank you for registering with us. We'll contact you shortly to confirm your registration.</p>
             </div>
         </div>
     </div>
@@ -1097,10 +1097,10 @@
                 
                 // Show payment info for personal and family
                 if (selectedPayor === 'personal') {
-                    paymentText.innerHTML = 'Please make payment of <span class="price-highlight">₦7,500</span> to 5380820030 (Moniepoint) to complete your registration.';
+                    paymentText.innerHTML = 'Please pay <span class="price-highlight">₦7,500</span> to <span class="price-highlight">5380820030</span> (Moniepoint) upon submission to confirm your registration.';
                     paymentInfo.classList.add('show');
                 } else if (selectedPayor === 'family') {
-                    paymentText.innerHTML = 'Please make payment of <span class="price-highlight">₦15,000</span> to 5380820030 (Moniepoint) to complete your registration.';
+                    paymentText.innerHTML = 'Please pay <span class="price-highlight">₦15,000</span> to <span class="price-highlight">5380820030</span> (Moniepoint) upon submission to confirm your registration.';
                     paymentInfo.classList.add('show');
                 }
             }
@@ -1202,12 +1202,12 @@
 
         function updateSuccessMessage(payorType) {
             const successMessage = document.getElementById('successMessage');
-            let message = "Thank you for registering with us. We'll contact you shortly to verify your information.";
+            let message = "Thank you for registering with us. We'll contact you shortly to confirm your registration.";
             
             if (payorType === 'personal') {
-                message += " Please bring ₦7,500 for payment upon arrival.";
+                message += " Please pay ₦7,500 for personal registration to 5380820030 (Moniepoint).";
             } else if (payorType === 'family') {
-                message += " Please bring ₦15,000 for family registration payment upon arrival.";
+                message += " Please pay ₦15,000 for family registration to 5380820030 (Moniepoint).";
             } else if (payorType === 'hmo') {
                 message += " No payment required - your HMO will handle billing directly.";
             }
