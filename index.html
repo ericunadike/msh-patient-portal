@@ -748,99 +748,14 @@
         <!-- Tab Navigation -->
         <div class="tab-navigation">
             <div class="tab-indicator" id="tabIndicator"></div>
-            <button class="tab-btn active" data-tab="registration">
-                <span class="tab-icon">👤</span>
-                Register
-            </button>
-            <button class="tab-btn" data-tab="feedback">
+            <button class="tab-btn active" data-tab="feedback">
                 <span class="tab-icon">💭</span>
                 Feedback
             </button>
-        </div>
-        
-        <!-- Registration Tab -->
-        <div class="tab-content active" id="registrationTab">
-            <form id="registrationForm">
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="firstName" class="required">First Name</label>
-                        <input type="text" id="firstName" class="form-input" placeholder="Enter first name" required>
-                        <div class="error-message">Please enter your first name</div>
-                    </div>
-                    <div class="form-group">
-                        <label for="lastName" class="required">Last Name</label>
-                        <input type="text" id="lastName" class="form-input" placeholder="Enter last name" required>
-                        <div class="error-message">Please enter your last name</div>
-                    </div>
-                </div>
-                
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="phone" class="required">Phone Number</label>
-                        <input type="tel" id="phone" class="form-input" placeholder="+234 801 234 5678" required>
-                        <div class="error-message">Please enter a valid phone number</div>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email Address</label>
-                        <input type="email" id="email" class="form-input" placeholder="your.email@example.com">
-                        <div class="error-message">Please enter a valid email address</div>
-                    </div>
-                </div>
-                
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="dateOfBirth" class="required">Date of Birth</label>
-                        <input type="date" id="dateOfBirth" class="form-input" required>
-                        <div class="error-message">Please enter your date of birth</div>
-                    </div>
-                    <div class="form-group">
-                        <label for="gender" class="required">Gender</label>
-                        <select id="gender" class="form-select" required>
-                            <option value="">Select gender</option>
-                            <option value="male">Male</option>
-                            <option value="female">Female</option>
-                            <option value="other">Other</option>
-                        </select>
-                        <div class="error-message">Please select your gender</div>
-                    </div>
-                </div>
-                
-                <div class="form-group">
-                    <label for="address" class="required">Address</label>
-                    <textarea id="address" class="comment-textarea" placeholder="Enter your full address..." rows="2" required></textarea>
-                    <div class="error-message">Please enter your address</div>
-                </div>
-                
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="hmo">HMO</label>
-                        <input type="text" id="hmo" class="form-input" placeholder="Enter HMO name (e.g. Hygeia, AIICO, etc.)">
-                    </div>
-                    <div class="form-group">
-                        <label for="hmoId">HMO ID</label>
-                        <input type="text" id="hmoId" class="form-input" placeholder="Enter HMO ID number">
-                    </div>
-                </div>
-                
-                <div class="checkbox-group" onclick="toggleConsent()">
-                    <div class="custom-checkbox" id="consentCheckbox"></div>
-                    <label class="checkbox-label">
-                        I consent to the processing of my personal information for medical purposes and agree to the hospital's privacy policy.
-                    </label>
-                </div>
-                
-                <div class="submit-section" style="margin-top: 32px;">
-                    <button type="submit" class="submit-btn" id="registerBtn" disabled>
-                        Complete Registration
-                    </button>
-                </div>
-            </form>
-            
-            <div class="registration-success" id="registrationSuccess">
-                <div class="success-animation"></div>
-                <h2>Registration Complete!</h2>
-                <p>Thank you for registering with us. We'll contact you shortly to confirm your appointment details.</p>
-            </div>
+            <button class="tab-btn" data-tab="feedback">
+                <span class="tab-icon">👤</span>
+                Register
+            </button>
         </div>
         
         <!-- Feedback Tab -->
@@ -957,9 +872,94 @@
         </div>
     </div>
 
+    <!-- Registration Tab -->
+        <div class="tab-content active" id="registrationTab">
+            <form id="registrationForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="firstName" class="required">First Name</label>
+                        <input type="text" id="firstName" class="form-input" placeholder="Enter first name" required>
+                        <div class="error-message">Please enter your first name</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName" class="required">Last Name</label>
+                        <input type="text" id="lastName" class="form-input" placeholder="Enter last name" required>
+                        <div class="error-message">Please enter your last name</div>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="phone" class="required">Phone Number</label>
+                        <input type="tel" id="phone" class="form-input" placeholder="+234 801 234 5678" required>
+                        <div class="error-message">Please enter a valid phone number</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" class="form-input" placeholder="your.email@example.com">
+                        <div class="error-message">Please enter a valid email address</div>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="dateOfBirth" class="required">Date of Birth</label>
+                        <input type="date" id="dateOfBirth" class="form-input" required>
+                        <div class="error-message">Please enter your date of birth</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="gender" class="required">Gender</label>
+                        <select id="gender" class="form-select" required>
+                            <option value="">Select gender</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                            <option value="other">Other</option>
+                        </select>
+                        <div class="error-message">Please select your gender</div>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="address" class="required">Address</label>
+                    <textarea id="address" class="comment-textarea" placeholder="Enter your full address..." rows="2" required></textarea>
+                    <div class="error-message">Please enter your address</div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="hmo">HMO</label>
+                        <input type="text" id="hmo" class="form-input" placeholder="Enter HMO name (e.g. Hygeia, AIICO, etc.)">
+                    </div>
+                    <div class="form-group">
+                        <label for="hmoId">HMO ID</label>
+                        <input type="text" id="hmoId" class="form-input" placeholder="Enter HMO ID number">
+                    </div>
+                </div>
+                
+                <div class="checkbox-group" onclick="toggleConsent()">
+                    <div class="custom-checkbox" id="consentCheckbox"></div>
+                    <label class="checkbox-label">
+                        I consent to the processing of my personal information for medical purposes and agree to the hospital's privacy policy.
+                    </label>
+                </div>
+                
+                <div class="submit-section" style="margin-top: 32px;">
+                    <button type="submit" class="submit-btn" id="registerBtn" disabled>
+                        Complete Registration
+                    </button>
+                </div>
+            </form>
+            
+            <div class="registration-success" id="registrationSuccess">
+                <div class="success-animation"></div>
+                <h2>Registration Complete!</h2>
+                <p>Thank you for registering with us. We'll contact you shortly to verify your information.</p>
+            </div>
+        </div>
+
     <script>
         // Tab switching functionality
-        let currentTab = 'registration';
+        let currentTab = 'feedback';
         const tabButtons = document.querySelectorAll('.tab-btn');
         const tabContents = document.querySelectorAll('.tab-content');
         const tabIndicator = document.getElementById('tabIndicator');
@@ -989,7 +989,7 @@
         }
 
         // Initialize tab indicator position
-        setTimeout(() => switchTab('registration'), 100);
+        setTimeout(() => switchTab('feedback'), 100);
 
         // Tab button click handlers
         tabButtons.forEach(btn => {
@@ -1103,7 +1103,7 @@
             };
 
             // Send email via EmailJS (you'll need to create a registration template)
-            emailjs.send('service_vmknsar', 'template_2wpah22', templateParams)
+            emailjs.send('service_vmknsar', 'template_2f4o2a9', templateParams)
                 .then(function(response) {
                     console.log('Registration email sent successfully!', response.status, response.text);
                 }, function(error) {
@@ -1444,7 +1444,7 @@ DETAILED ANALYSIS:
             };
 
             // Send email via EmailJS
-            emailjs.send('YOUR_SERVICE_ID', 'YOUR_FEEDBACK_TEMPLATE_ID', templateParams)
+            emailjs.send('service_vmknsar', 'template_2wpah22', templateParams)
                 .then(function(response) {
                     console.log('Feedback email sent successfully!', response.status, response.text);
                     console.log('Analysis Results:', textAnalysis);
