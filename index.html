@@ -331,6 +331,56 @@
             flex: 1;
         }
         
+        /* Payment Info Box */
+        .payment-info {
+            background: rgba(74, 144, 226, 0.05);
+            border: 2px solid rgba(74, 144, 226, 0.1);
+            border-radius: 12px;
+            padding: 16px;
+            margin-top: 16px;
+            display: none;
+            animation: slideDown 0.3s ease-out;
+        }
+        
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .payment-info.show {
+            display: block;
+        }
+        
+        .payment-info h4 {
+            color: #4a90e2;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .payment-info p {
+            color: #6b7280;
+            font-size: 13px;
+            line-height: 1.4;
+        }
+        
+        .price-highlight {
+            color: #059669;
+            font-weight: 700;
+            background: rgba(16, 185, 129, 0.1);
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+        
         /* Registration Success */
         .registration-success {
             text-align: center;
@@ -671,6 +721,15 @@
             transform: scale(1.2);
         }
         
+        /* Disabled form field styling */
+        .form-input:disabled,
+        .form-select:disabled {
+            background: #f9fafb;
+            color: #9ca3af;
+            cursor: not-allowed;
+            opacity: 0.7;
+        }
+        
         /* Mobile Optimizations */
         @media (max-width: 480px) {
             body {
@@ -752,14 +811,14 @@
                 <span class="tab-icon">💭</span>
                 Feedback
             </button>
-            <button class="tab-btn" data-tab="feedback">
+            <button class="tab-btn" data-tab="registration">
                 <span class="tab-icon">👤</span>
                 Register
             </button>
         </div>
         
         <!-- Feedback Tab -->
-        <div class="tab-content" id="feedbackTab">
+        <div class="tab-content active" id="feedbackTab">
             <div class="survey-form" id="surveyForm">
                 <div class="progress-indicator">
                     <div class="progress-dot active"></div>
@@ -829,29 +888,29 @@
                 
                 <div class="comment-section">
                     <label for="patientName">Your Name (Optional)</label>
-                    <input
-                         type="text"
-                         id="patientName"
-                         class="comment-input"
+                    <input 
+                        type="text" 
+                        id="patientName" 
+                        class="comment-input"
                         placeholder="Enter your name..."
                     />
                 </div>
 
                 <div class="comment-section">
                     <label for="patientContact">Email or Phone (Optional)</label>
-                    <input
-                         type="text"
-                         id="patientContact"
-                         class="comment-input"
+                    <input 
+                        type="text" 
+                        id="patientContact" 
+                        class="comment-input"
                         placeholder="your.email@example.com or +234 801 234 5678"
                     />
                 </div>
                 
                 <div class="comment-section">
                     <label for="comments">Share your experience with us</label>
-                    <textarea
-                         id="comments"
-                         class="comment-textarea"
+                    <textarea 
+                        id="comments" 
+                        class="comment-textarea"
                         placeholder="Tell us about your visit, our staff, facilities, or any suggestions for improvement..."
                         rows="4"
                     ></textarea>
@@ -870,10 +929,9 @@
                 <p>Your valuable feedback has been received. We truly appreciate you taking the time to help us improve our healthcare services.</p>
             </div>
         </div>
-    </div>
 
-    <!-- Registration Tab -->
-        <div class="tab-content active" id="registrationTab">
+        <!-- Registration Tab -->
+        <div class="tab-content" id="registrationTab">
             <form id="registrationForm">
                 <div class="form-row">
                     <div class="form-group">
@@ -927,13 +985,25 @@
                 
                 <div class="form-row">
                     <div class="form-group">
-                        <label for="hmo">HMO</label>
-                        <input type="text" id="hmo" class="form-input" placeholder="Enter HMO name (e.g. Hygeia, AIICO, etc.)">
+                        <label for="payor" class="required">Payor</label>
+                        <select id="payor" class="form-select" required>
+                            <option value="">Select payor type</option>
+                            <option value="personal">Personal - ₦7,500</option>
+                            <option value="family">Family - ₦15,000</option>
+                            <option value="hmo">HMO</option>
+                        </select>
+                        <div class="error-message">Please select your payor type</div>
                     </div>
                     <div class="form-group">
                         <label for="hmoId">HMO ID</label>
-                        <input type="text" id="hmoId" class="form-input" placeholder="Enter HMO ID number">
+                        <input type="text" id="hmoId" class="form-input" placeholder="Enter HMO ID number" disabled>
+                        <div class="error-message">Please enter your HMO ID</div>
                     </div>
+                </div>
+                
+                <div class="payment-info" id="paymentInfo">
+                    <h4>💳 Payment Information</h4>
+                    <p id="paymentText">Please make payment of <span class="price-highlight">₦7,500</span> upon arrival at the hospital reception.</p>
                 </div>
                 
                 <div class="checkbox-group" onclick="toggleConsent()">
@@ -953,9 +1023,10 @@
             <div class="registration-success" id="registrationSuccess">
                 <div class="success-animation"></div>
                 <h2>Registration Complete!</h2>
-                <p>Thank you for registering with us. We'll contact you shortly to verify your information.</p>
+                <p id="successMessage">Thank you for registering with us. We'll contact you shortly to verify your information.</p>
             </div>
         </div>
+    </div>
 
     <script>
         // Tab switching functionality
@@ -1002,7 +1073,40 @@
         const registrationForm = document.getElementById('registrationForm');
         const consentCheckbox = document.getElementById('consentCheckbox');
         const registerBtn = document.getElementById('registerBtn');
+        const payorSelect = document.getElementById('payor');
+        const hmoIdInput = document.getElementById('hmoId');
+        const paymentInfo = document.getElementById('paymentInfo');
+        const paymentText = document.getElementById('paymentText');
         let consentGiven = false;
+
+        // Payor selection functionality
+        payorSelect.addEventListener('change', function() {
+            const selectedPayor = this.value;
+            
+            // Handle HMO ID field visibility and requirement
+            if (selectedPayor === 'hmo') {
+                hmoIdInput.disabled = false;
+                hmoIdInput.required = true;
+                hmoIdInput.style.opacity = '1';
+                paymentInfo.classList.remove('show');
+            } else {
+                hmoIdInput.disabled = true;
+                hmoIdInput.required = false;
+                hmoIdInput.value = '';
+                hmoIdInput.style.opacity = '0.7';
+                
+                // Show payment info for personal and family
+                if (selectedPayor === 'personal') {
+                    paymentText.innerHTML = 'Please make payment of <span class="price-highlight">₦7,500</span> to 5380820030 (Moniepoint) to complete your registration.';
+                    paymentInfo.classList.add('show');
+                } else if (selectedPayor === 'family') {
+                    paymentText.innerHTML = 'Please make payment of <span class="price-highlight">₦15,000</span> to 5380820030 (Moniepoint) to complete your registration.';
+                    paymentInfo.classList.add('show');
+                }
+            }
+            
+            validateRegistrationForm();
+        });
 
         // Consent checkbox functionality
         function toggleConsent() {
@@ -1026,13 +1130,18 @@
             const dateOfBirth = document.getElementById('dateOfBirth').value;
             const gender = document.getElementById('gender').value;
             const address = document.getElementById('address').value.trim();
+            const payor = document.getElementById('payor').value;
+            const hmoId = document.getElementById('hmoId').value.trim();
 
-            const isValid = firstName && lastName && phone && dateOfBirth && gender && address && consentGiven;
+            // Check if HMO ID is required and filled
+            const hmoIdValid = payor !== 'hmo' || (payor === 'hmo' && hmoId);
+
+            const isValid = firstName && lastName && phone && dateOfBirth && gender && address && payor && consentGiven && hmoIdValid;
             registerBtn.disabled = !isValid;
         }
 
         // Add input listeners for real-time validation
-        ['firstName', 'lastName', 'phone', 'dateOfBirth', 'gender', 'address'].forEach(id => {
+        ['firstName', 'lastName', 'phone', 'dateOfBirth', 'gender', 'address', 'payor', 'hmoId'].forEach(id => {
             const element = document.getElementById(id);
             element.addEventListener('input', validateRegistrationForm);
             element.addEventListener('change', validateRegistrationForm);
@@ -1057,6 +1166,8 @@
             
             if (registerBtn.disabled) return;
 
+            const selectedPayor = document.getElementById('payor').value;
+            
             // Collect form data
             const registrationData = {
                 firstName: document.getElementById('firstName').value.trim(),
@@ -1066,8 +1177,8 @@
                 dateOfBirth: document.getElementById('dateOfBirth').value,
                 gender: document.getElementById('gender').value,
                 address: document.getElementById('address').value.trim(),
-                hmo: document.getElementById('hmo').value.trim() || 'Not provided',
-                hmoId: document.getElementById('hmoId').value.trim() || 'Not provided',
+                payor: selectedPayor,
+                hmoId: document.getElementById('hmoId').value.trim() || 'Not applicable',
                 timestamp: new Date().toISOString(),
                 registrationId: 'REG-' + Date.now()
             };
@@ -1079,6 +1190,9 @@
             // Send registration email
             sendRegistrationEmail(registrationData);
 
+            // Update success message based on payor type
+            updateSuccessMessage(selectedPayor);
+
             // Show success message after delay
             setTimeout(() => {
                 document.getElementById('registrationForm').style.display = 'none';
@@ -1086,7 +1200,29 @@
             }, 1500);
         });
 
+        function updateSuccessMessage(payorType) {
+            const successMessage = document.getElementById('successMessage');
+            let message = "Thank you for registering with us. We'll contact you shortly to verify your information.";
+            
+            if (payorType === 'personal') {
+                message += " Please bring ₦7,500 for payment upon arrival.";
+            } else if (payorType === 'family') {
+                message += " Please bring ₦15,000 for family registration payment upon arrival.";
+            } else if (payorType === 'hmo') {
+                message += " No payment required - your HMO will handle billing directly.";
+            }
+            
+            successMessage.textContent = message;
+        }
+
         function sendRegistrationEmail(data) {
+            // Map payor values to display names
+            const payorDisplay = {
+                'personal': 'Personal (₦7,500)',
+                'family': 'Family (₦15,000)', 
+                'hmo': 'HMO (No payment required)'
+            };
+
             const templateParams = {
                 hospital_name: 'Magodo Specialist Hospital',
                 registration_id: data.registrationId,
@@ -1096,7 +1232,7 @@
                 date_of_birth: data.dateOfBirth,
                 gender: data.gender,
                 address: data.address,
-                hmo: data.hmo,
+                payor: payorDisplay[data.payor] || data.payor,
                 hmo_id: data.hmoId,
                 registration_timestamp: new Date(data.timestamp).toLocaleString(),
                 priority_level: '🟡 Normal Priority'
