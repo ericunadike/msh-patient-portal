@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+         
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-SN9W0VL22Y"></script>
     <script>
@@ -12,1239 +12,12 @@
         gtag('js', new Date());
         gtag('config', 'G-SN9W0VL22Y');
     </script>
-    
+         
     <!-- EmailJS SDK -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script type="text/javascript">
         (function(){
             emailjs.init("Z0VMFmiXu1u4xRa9b"); // Replace with your EmailJS public key
-        })();
-    </script>
-    
-    <title>Patient Services - Magodo Specialist Hospital</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-            background: linear-gradient(135deg, #f5f8ff 0%, #e8f4f8 50%, #f0f8ff 100%);
-            min-height: 100vh;
-            padding: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            line-height: 1.6;
-        }
-        
-        .main-container {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-radius: 24px;
-            padding: 32px;
-            max-width: 460px;
-            width: 100%;
-            box-shadow: 
-                0 8px 32px rgba(0, 0, 0, 0.08),
-                0 4px 16px rgba(0, 0, 0, 0.04),
-                inset 0 1px 0 rgba(255, 255, 255, 0.8);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        @keyframes slideUp {
-            from {
-                opacity: 0;
-                transform: translateY(40px) scale(0.95);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0) scale(1);
-            }
-        }
-        
-        .hospital-header {
-            text-align: center;
-            margin-bottom: 32px;
-            position: relative;
-        }
-        
-        .hospital-icon {
-            width: 64px;
-            height: 64px;
-            background: linear-gradient(135deg, #4a90e2, #357abd);
-            border-radius: 20px;
-            margin: 0 auto 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 8px 24px rgba(74, 144, 226, 0.25);
-            animation: heartbeat 2s infinite;
-        }
-        
-        @keyframes heartbeat {
-            0%, 50%, 100% { transform: scale(1); }
-            25% { transform: scale(1.05); }
-        }
-        
-        .hospital-icon::before {
-            content: '🏥';
-            font-size: 28px;
-            filter: brightness(0) invert(1);
-        }
-        
-        .hospital-header h1 {
-            color: #2c3e50;
-            font-size: 22px;
-            font-weight: 700;
-            margin-bottom: 8px;
-            letter-spacing: -0.5px;
-        }
-        
-        .hospital-header p {
-            color: #6b7280;
-            font-size: 15px;
-            font-weight: 500;
-        }
-        
-        /* Tab Navigation */
-        .tab-navigation {
-            display: flex;
-            margin-bottom: 32px;
-            border-radius: 16px;
-            background: rgba(74, 144, 226, 0.1);
-            padding: 4px;
-            position: relative;
-        }
-        
-        .tab-indicator {
-            position: absolute;
-            background: linear-gradient(135deg, #4a90e2, #357abd);
-            border-radius: 12px;
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-            box-shadow: 0 4px 16px rgba(74, 144, 226, 0.3);
-        }
-        
-        .tab-btn {
-            flex: 1;
-            background: none;
-            border: none;
-            padding: 16px 20px;
-            text-align: center;
-            font-size: 14px;
-            font-weight: 600;
-            color: #6b7280;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            border-radius: 12px;
-            position: relative;
-            z-index: 2;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-        }
-        
-        .tab-btn.active {
-            color: white;
-            text-shadow: 0 1px 2px rgba(0,0,0,0.1);
-        }
-        
-        .tab-btn:not(.active):hover {
-            color: #4a90e2;
-            transform: translateY(-1px);
-        }
-        
-        .tab-icon {
-            font-size: 16px;
-        }
-        
-        /* Tab Content */
-        .tab-content {
-            display: none;
-            animation: fadeInUp 0.5s ease-out;
-        }
-        
-        .tab-content.active {
-            display: block;
-        }
-        
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        /* Registration Form Styles */
-        .form-group {
-            margin-bottom: 24px;
-        }
-        
-        .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 16px;
-        }
-        
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            color: #374151;
-            font-weight: 600;
-            font-size: 14px;
-            position: relative;
-        }
-        
-        .required::after {
-            content: '*';
-            color: #ef4444;
-            margin-left: 4px;
-            font-weight: bold;
-        }
-        
-        .form-input {
-            width: 100%;
-            padding: 14px 16px;
-            border: 2px solid #e5e7eb;
-            border-radius: 12px;
-            font-family: inherit;
-            font-size: 14px;
-            transition: all 0.3s ease;
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(5px);
-            position: relative;
-        }
-        
-        .form-input:focus {
-            outline: none;
-            border-color: #4a90e2;
-            background: white;
-            box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.1);
-            transform: translateY(-1px);
-        }
-        
-        .form-input::placeholder {
-            color: #9ca3af;
-        }
-        
-        .form-input.error {
-            border-color: #ef4444;
-            animation: shake 0.5s ease-in-out;
-        }
-        
-        @keyframes shake {
-            0%, 100% { transform: translateX(0); }
-            25% { transform: translateX(-5px); }
-            75% { transform: translateX(5px); }
-        }
-        
-        .error-message {
-            color: #ef4444;
-            font-size: 12px;
-            margin-top: 4px;
-            display: none;
-        }
-        
-        .form-input.error + .error-message {
-            display: block;
-        }
-        
-        /* Select Input */
-        .form-select {
-            width: 100%;
-            padding: 14px 16px;
-            border: 2px solid #e5e7eb;
-            border-radius: 12px;
-            font-family: inherit;
-            font-size: 14px;
-            background: rgba(255, 255, 255, 0.8);
-            color: #374151;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        
-        .form-select:focus {
-            outline: none;
-            border-color: #4a90e2;
-            box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.1);
-        }
-        
-        /* Checkbox */
-        .checkbox-group {
-            display: flex;
-            align-items: flex-start;
-            gap: 16px;
-            margin-top: 16px;
-            cursor: pointer;
-            padding: 12px;
-            border-radius: 12px;
-            transition: background-color 0.3s ease;
-        }
-        
-        .checkbox-group:hover {
-            background: rgba(74, 144, 226, 0.05);
-        }
-        
-        .custom-checkbox {
-            width: 24px;
-            height: 24px;
-            min-width: 24px;
-            border: 2px solid #e5e7eb;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            position: relative;
-            margin-top: 2px;
-        }
-        
-        .custom-checkbox.checked {
-            background: linear-gradient(135deg, #4a90e2, #357abd);
-            border-color: #4a90e2;
-            transform: scale(1.1);
-        }
-        
-        .custom-checkbox.checked::after {
-            content: '✓';
-            color: white;
-            font-size: 14px;
-            font-weight: bold;
-        }
-        
-        .checkbox-label {
-            color: #6b7280;
-            font-size: 14px;
-            cursor: pointer;
-            line-height: 1.5;
-            flex: 1;
-        }
-        
-        /* Payment Info Box */
-        .payment-info {
-            background: rgba(74, 144, 226, 0.05);
-            border: 2px solid rgba(74, 144, 226, 0.1);
-            border-radius: 12px;
-            padding: 16px;
-            margin-top: 16px;
-            display: none;
-            animation: slideDown 0.3s ease-out;
-        }
-        
-        @keyframes slideDown {
-            from {
-                opacity: 0;
-                transform: translateY(-10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        .payment-info.show {
-            display: block;
-        }
-        
-        .payment-info h4 {
-            color: #4a90e2;
-            font-size: 14px;
-            font-weight: 600;
-            margin-bottom: 8px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        
-        .payment-info p {
-            color: #6b7280;
-            font-size: 13px;
-            line-height: 1.4;
-        }
-        
-        .price-highlight {
-            color: #059669;
-            font-weight: 700;
-            background: rgba(16, 185, 129, 0.1);
-            padding: 2px 6px;
-            border-radius: 4px;
-        }
-        
-        /* Registration Success */
-        .registration-success {
-            text-align: center;
-            padding: 32px 16px;
-            display: none;
-        }
-        
-        .success-animation {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #10b981, #059669);
-            margin: 0 auto 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            animation: successPulse 2s infinite;
-        }
-        
-        @keyframes successPulse {
-            0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4); }
-            50% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(16, 185, 129, 0); }
-        }
-        
-        .success-animation::after {
-            content: '🎉';
-            font-size: 32px;
-        }
-        
-        /* Original survey styles */
-        .question-section {
-            margin-bottom: 28px;
-        }
-        
-        .question-title {
-            color: #374151;
-            margin-bottom: 16px;
-            font-size: 17px;
-            font-weight: 600;
-            text-align: center;
-            position: relative;
-            padding-bottom: 8px;
-        }
-        
-        .question-title::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 40px;
-            height: 2px;
-            background: linear-gradient(90deg, #4a90e2, #357abd);
-            border-radius: 1px;
-        }
-        
-        .rating-grid {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 8px;
-            margin-bottom: 12px;
-        }
-        
-        .rating-option {
-            aspect-ratio: 1;
-            border: 2px solid #e5e7eb;
-            border-radius: 16px;
-            background: white;
-            cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 8px 4px;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .rating-option::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, #4a90e2, #357abd);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-        
-        .rating-option:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-            border-color: #4a90e2;
-        }
-        
-        .rating-option.selected {
-            border-color: #4a90e2;
-            background: #f0f7ff;
-            transform: translateY(-2px) scale(1.05);
-            box-shadow: 0 8px 25px rgba(74, 144, 226, 0.25);
-        }
-        
-        .rating-option.selected::before {
-            opacity: 0.1;
-        }
-        
-        .rating-emoji {
-            font-size: 20px;
-            margin-bottom: 4px;
-            position: relative;
-            z-index: 1;
-            transition: transform 0.3s ease;
-        }
-        
-        .rating-option.selected .rating-emoji {
-            transform: scale(1.1);
-        }
-        
-        .rating-label {
-            font-size: 10px;
-            color: #6b7280;
-            font-weight: 600;
-            text-align: center;
-            line-height: 1.2;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .rating-option.selected .rating-label {
-            color: #4a90e2;
-        }
-        
-        .rating-scale {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 8px;
-            font-size: 11px;
-            color: #9ca3af;
-            font-weight: 500;
-        }
-        
-        .comment-section {
-            margin-bottom: 28px;
-        }
-        
-        .comment-section label {
-            display: block;
-            margin-bottom: 12px;
-            color: #374151;
-            font-weight: 600;
-            font-size: 15px;
-        }
-        
-        .comment-input {
-            width: 100%;
-            padding: 16px;
-            border: 2px solid #e5e7eb;
-            border-radius: 16px;
-            font-family: inherit;
-            font-size: 14px;
-            transition: all 0.3s ease;
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(5px);
-            margin-bottom: 16px;
-        }
-        
-        .comment-input:focus {
-            outline: none;
-            border-color: #4a90e2;
-            background: white;
-            box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.1);
-        }
-        
-        .comment-input::placeholder {
-            color: #9ca3af;
-        }
-        
-        .comment-textarea {
-            width: 100%;
-            padding: 16px;
-            border: 2px solid #e5e7eb;
-            border-radius: 16px;
-            font-family: inherit;
-            font-size: 14px;
-            resize: vertical;
-            min-height: 100px;
-            transition: all 0.3s ease;
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(5px);
-        }
-        
-        .comment-textarea:focus {
-            outline: none;
-            border-color: #4a90e2;
-            background: white;
-            box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.1);
-        }
-        
-        .comment-textarea::placeholder {
-            color: #9ca3af;
-        }
-        
-        .submit-section {
-            text-align: center;
-        }
-        
-        .submit-btn {
-            width: 100%;
-            padding: 16px 24px;
-            background: linear-gradient(135deg, #4a90e2, #357abd);
-            color: white;
-            border: none;
-            border-radius: 16px;
-            font-size: 16px;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .submit-btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            transition: left 0.5s;
-        }
-        
-        .submit-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 12px 35px rgba(74, 144, 226, 0.4);
-        }
-        
-        .submit-btn:hover::before {
-            left: 100%;
-        }
-        
-        .submit-btn:disabled {
-            background: linear-gradient(135deg, #d1d5db, #9ca3af);
-            cursor: not-allowed;
-            transform: none;
-            box-shadow: none;
-        }
-        
-        .submit-btn:disabled::before {
-            display: none;
-        }
-        
-        .thank-you {
-            display: none;
-            text-align: center;
-            padding: 48px 24px;
-            animation: fadeIn 0.8s ease-out;
-        }
-        
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: scale(0.9);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
-        
-        .success-icon {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #10b981, #059669);
-            margin: 0 auto 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            animation: bounce 2s infinite;
-        }
-        
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {
-                transform: translateY(0) scale(1);
-            }
-            40% {
-                transform: translateY(-10px) scale(1.05);
-            }
-            60% {
-                transform: translateY(-5px) scale(1.02);
-            }
-        }
-        
-        .success-icon::after {
-            content: '✓';
-            color: white;
-            font-size: 36px;
-            font-weight: bold;
-        }
-        
-        .thank-you h2 {
-            color: #10b981;
-            margin-bottom: 16px;
-            font-size: 28px;
-            font-weight: 800;
-        }
-        
-        .thank-you p {
-            color: #6b7280;
-            font-size: 16px;
-            line-height: 1.6;
-            max-width: 300px;
-            margin: 0 auto;
-        }
-        
-        .progress-indicator {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 24px;
-            gap: 8px;
-        }
-        
-        .progress-dot {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: #e5e7eb;
-            transition: all 0.3s ease;
-        }
-        
-        .progress-dot.active {
-            background: #4a90e2;
-            transform: scale(1.2);
-        }
-        
-        /* Disabled form field styling */
-        .form-input:disabled,
-        .form-select:disabled {
-            background: #f9fafb;
-            color: #9ca3af;
-            cursor: not-allowed;
-            opacity: 0.7;
-        }
-        
-        /* Mobile Optimizations */
-        @media (max-width: 480px) {
-            body {
-                padding: 12px;
-            }
-            
-            .main-container {
-                padding: 24px;
-                border-radius: 20px;
-            }
-            
-            .hospital-header h1 {
-                font-size: 20px;
-            }
-            
-            .tab-btn {
-                padding: 12px 16px;
-                font-size: 13px;
-            }
-            
-            .tab-icon {
-                font-size: 14px;
-            }
-            
-            .form-row {
-                grid-template-columns: 1fr;
-                gap: 16px;
-            }
-            
-            .question-title {
-                font-size: 16px;
-            }
-            
-            .rating-grid {
-                gap: 6px;
-            }
-            
-            .rating-option {
-                padding: 6px 2px;
-            }
-            
-            .rating-emoji {
-                font-size: 18px;
-            }
-            
-            .rating-label {
-                font-size: 9px;
-            }
-            
-            .comment-textarea {
-                min-height: 80px;
-                padding: 12px;
-            }
-            
-            .comment-input {
-                padding: 12px;
-                margin-bottom: 12px;
-            }
-            
-            .submit-btn {
-                padding: 14px 20px;
-                font-size: 15px;
-            }
-        }
-    </style>
-</head>
-<body>
-    <div class="main-container">
-        <div class="hospital-header">
-            <div class="hospital-icon"></div>
-            <h1>Magodo Specialist Hospital</h1>
-            <p>Welcome to our patient services portal</p>
-        </div>
-        
-        <!-- Tab Navigation -->
-        <div class="tab-navigation">
-            <div class="tab-indicator" id="tabIndicator"></div>
-            <button class="tab-btn active" data-tab="feedback">
-                <span class="tab-icon">💭</span>
-                Feedback
-            </button>
-            <button class="tab-btn" data-tab="registration">
-                <span class="tab-icon">👤</span>
-                Register
-            </button>
-        </div>
-        
-        <!-- Feedback Tab -->
-        <div class="tab-content active" id="feedbackTab">
-            <div class="survey-form" id="surveyForm">
-                <div class="progress-indicator">
-                    <div class="progress-dot active"></div>
-                    <div class="progress-dot"></div>
-                    <div class="progress-dot"></div>
-                </div>
-                
-                <div class="question-section">
-                    <h3 class="question-title">How satisfied are you with our care?</h3>
-                    <div class="rating-grid" id="satisfactionRating">
-                        <button type="button" class="rating-option" data-value="1">
-                            <span class="rating-emoji">😞</span>
-                            <span class="rating-label">Very Poor</span>
-                        </button>
-                        <button type="button" class="rating-option" data-value="2">
-                            <span class="rating-emoji">😕</span>
-                            <span class="rating-label">Poor</span>
-                        </button>
-                        <button type="button" class="rating-option" data-value="3">
-                            <span class="rating-emoji">😐</span>
-                            <span class="rating-label">Fair</span>
-                        </button>
-                        <button type="button" class="rating-option" data-value="4">
-                            <span class="rating-emoji">😊</span>
-                            <span class="rating-label">Good</span>
-                        </button>
-                        <button type="button" class="rating-option" data-value="5">
-                            <span class="rating-emoji">🤩</span>
-                            <span class="rating-label">Excellent</span>
-                        </button>
-                    </div>
-                    <div class="rating-scale">
-                        <span>Not satisfied</span>
-                        <span>Very satisfied</span>
-                    </div>
-                </div>
-                
-                <div class="question-section">
-                    <h3 class="question-title">Would you recommend us to others?</h3>
-                    <div class="rating-grid" id="recommendRating">
-                        <button type="button" class="rating-option" data-value="1">
-                            <span class="rating-emoji">👎</span>
-                            <span class="rating-label">Never</span>
-                        </button>
-                        <button type="button" class="rating-option" data-value="2">
-                            <span class="rating-emoji">🤷</span>
-                            <span class="rating-label">Unlikely</span>
-                        </button>
-                        <button type="button" class="rating-option" data-value="3">
-                            <span class="rating-emoji">🤔</span>
-                            <span class="rating-label">Maybe</span>
-                        </button>
-                        <button type="button" class="rating-option" data-value="4">
-                            <span class="rating-emoji">👍</span>
-                            <span class="rating-label">Likely</span>
-                        </button>
-                        <button type="button" class="rating-option" data-value="5">
-                            <span class="rating-emoji">💯</span>
-                            <span class="rating-label">Definitely</span>
-                        </button>
-                    </div>
-                    <div class="rating-scale">
-                        <span>Would not recommend</span>
-                        <span>Highly recommend</span>
-                    </div>
-                </div>
-                
-                <div class="comment-section">
-                    <label for="patientName">Your Name (Optional)</label>
-                    <input 
-                        type="text" 
-                        id="patientName" 
-                        class="comment-input"
-                        placeholder="Enter your name..."
-                    />
-                </div>
-
-                <div class="comment-section">
-                    <label for="patientContact">Email or Phone (Optional)</label>
-                    <input 
-                        type="text" 
-                        id="patientContact" 
-                        class="comment-input"
-                        placeholder="your.email@example.com or +234 801 234 5678"
-                    />
-                </div>
-                
-                <div class="comment-section">
-                    <label for="comments">Share your experience with us</label>
-                    <textarea 
-                        id="comments" 
-                        class="comment-textarea"
-                        placeholder="Tell us about your visit, our staff, facilities, or any suggestions for improvement..."
-                        rows="4"
-                    ></textarea>
-                </div>
-                
-                <div class="submit-section">
-                    <button type="submit" class="submit-btn" id="submitBtn" disabled>
-                        Submit Feedback
-                    </button>
-                </div>
-            </div>
-            
-            <div class="thank-you" id="thankYou">
-                <div class="success-icon"></div>
-                <h2>Thank You!</h2>
-                <p>Your valuable feedback has been received. We truly appreciate you taking the time to help us improve our healthcare services.</p>
-            </div>
-        </div>
-
-        <!-- Registration Tab -->
-        <div class="tab-content" id="registrationTab">
-            <form id="registrationForm">
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="firstName" class="required">First Name</label>
-                        <input type="text" id="firstName" class="form-input" placeholder="Enter first name" required>
-                        <div class="error-message">Please enter your first name</div>
-                    </div>
-                    <div class="form-group">
-                        <label for="lastName" class="required">Last Name</label>
-                        <input type="text" id="lastName" class="form-input" placeholder="Enter last name" required>
-                        <div class="error-message">Please enter your last name</div>
-                    </div>
-                </div>
-                
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="phone" class="required">Phone Number</label>
-                        <input type="tel" id="phone" class="form-input" placeholder="+234 801 234 5678" required>
-                        <div class="error-message">Please enter a valid phone number</div>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email Address</label>
-                        <input type="email" id="email" class="form-input" placeholder="your.email@example.com">
-                        <div class="error-message">Please enter a valid email address</div>
-                    </div>
-                </div>
-                
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="dateOfBirth" class="required">Date of Birth</label>
-                        <input type="date" id="dateOfBirth" class="form-input" required>
-                        <div class="error-message">Please enter your date of birth</div>
-                    </div>
-                    <div class="form-group">
-                        <label for="gender" class="required">Gender</label>
-                        <select id="gender" class="form-select" required>
-                            <option value="">Select gender</option>
-                            <option value="male">Male</option>
-                            <option value="female">Female</option>
-                            <option value="other">Other</option>
-                        </select>
-                        <div class="error-message">Please select your gender</div>
-                    </div>
-                </div>
-                
-                <div class="form-group">
-                    <label for="address" class="required">Address</label>
-                    <textarea id="address" class="comment-textarea" placeholder="Enter your full address..." rows="2" required></textarea>
-                    <div class="error-message">Please enter your address</div>
-                </div>
-                
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="payor" class="required">Payor</label>
-                        <select id="payor" class="form-select" required>
-                            <option value="">Select payor type</option>
-                            <option value="personal">Personal - ₦7,500</option>
-                            <option value="family">Family - ₦15,000</option>
-                            <option value="hmo">HMO</option>
-                        </select>
-                        <div class="error-message">Please select your payor type</div>
-                    </div>
-                    <div class="form-group">
-                        <label for="hmoId">HMO ID</label>
-                        <input type="text" id="hmoId" class="form-input" placeholder="Enter HMO ID number" disabled>
-                        <div class="error-message">Please enter your HMO ID</div>
-                    </div>
-                </div>
-                
-                <div class="payment-info" id="paymentInfo">
-                    <h4>💳 Payment Information</h4>
-                    <p id="paymentText">Please make payment of <span class="price-highlight">₦7,500</span> upon arrival at the hospital reception.</p>
-                </div>
-                
-                <div class="checkbox-group" onclick="toggleConsent()">
-                    <div class="custom-checkbox" id="consentCheckbox"></div>
-                    <label class="checkbox-label">
-                        I consent to the processing of my personal information for medical purposes and agree to the hospital's privacy policy.
-                    </label>
-                </div>
-                
-                <div class="submit-section" style="margin-top: 32px;">
-                    <button type="submit" class="submit-btn" id="registerBtn" disabled>
-                        Complete Registration
-                    </button>
-                </div>
-            </form>
-            
-            <div class="registration-success" id="registrationSuccess">
-                <div class="success-animation"></div>
-                <h2>Registration Complete!</h2>
-                <p id="successMessage">Thank you for registering with us. We'll contact you shortly to confirm your registration.</p>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        // Tab switching functionality
-        let currentTab = 'feedback';
-        const tabButtons = document.querySelectorAll('.tab-btn');
-        const tabContents = document.querySelectorAll('.tab-content');
-        const tabIndicator = document.getElementById('tabIndicator');
-
-        function switchTab(tabName) {
-            // Update button states
-            tabButtons.forEach(btn => {
-                btn.classList.toggle('active', btn.dataset.tab === tabName);
-            });
-
-            // Update content visibility
-            tabContents.forEach(content => {
-                content.classList.toggle('active', content.id === `${tabName}Tab`);
-            });
-
-            // Move indicator
-            const activeBtn = document.querySelector(`[data-tab="${tabName}"]`);
-            const rect = activeBtn.getBoundingClientRect();
-            const containerRect = activeBtn.parentElement.getBoundingClientRect();
-            
-            tabIndicator.style.width = `${rect.width}px`;
-            tabIndicator.style.height = `${rect.height}px`;
-            tabIndicator.style.left = `${rect.left - containerRect.left}px`;
-            tabIndicator.style.top = `${rect.top - containerRect.top}px`;
-
-            currentTab = tabName;
-        }
-
-        // Initialize tab indicator position
-        setTimeout(() => switchTab('feedback'), 100);
-
-        // Tab button click handlers
-        tabButtons.forEach(btn => {
-            btn.addEventListener('click', () => {
-                switchTab(btn.dataset.tab);
-            });
-        });
-
-        // Registration form functionality
-        const registrationForm = document.getElementById('registrationForm');
-        const consentCheckbox = document.getElementById('consentCheckbox');
-        const registerBtn = document.getElementById('registerBtn');
-        const payorSelect = document.getElementById('payor');
-        const hmoIdInput = document.getElementById('hmoId');
-        const paymentInfo = document.getElementById('paymentInfo');
-        const paymentText = document.getElementById('paymentText');
-        let consentGiven = false;
-
-        // Payor selection functionality
-        payorSelect.addEventListener('change', function() {
-            const selectedPayor = this.value;
-            
-            // Handle HMO ID field visibility and requirement
-            if (selectedPayor === 'hmo') {
-                hmoIdInput.disabled = false;
-                hmoIdInput.required = true;
-                hmoIdInput.style.opacity = '1';
-                paymentInfo.classList.remove('show');
-            } else {
-                hmoIdInput.disabled = true;
-                hmoIdInput.required = false;
-                hmoIdInput.value = '';
-                hmoIdInput.style.opacity = '0.7';
-                
-                // Show payment info for personal and family
-                if (selectedPayor === 'personal') {
-                    paymentText.innerHTML = 'Please pay <span class="price-highlight">₦7,500</span> to <span class="price-highlight">5380820030</span> (Moniepoint) upon submission to confirm your registration.';
-                    paymentInfo.classList.add('show');
-                } else if (selectedPayor === 'family') {
-                    paymentText.innerHTML = 'Please pay <span class="price-highlight">₦15,000</span> to <span class="price-highlight">5380820030</span> (Moniepoint) upon submission to confirm your registration.';
-                    paymentInfo.classList.add('show');
-                }
-            }
-            
-            validateRegistrationForm();
-        });
-
-        // Consent checkbox functionality
-        function toggleConsent() {
-            consentGiven = !consentGiven;
-            const checkbox = document.getElementById('consentCheckbox');
-            checkbox.classList.toggle('checked', consentGiven);
-            
-            // Add haptic feedback for mobile
-            if (navigator.vibrate) {
-                navigator.vibrate(30);
-            }
-            
-            validateRegistrationForm();
-        }
-
-        // Form validation
-        function validateRegistrationForm() {
-            const firstName = document.getElementById('firstName').value.trim();
-            const lastName = document.getElementById('lastName').value.trim();
-            const phone = document.getElementById('phone').value.trim();
-            const dateOfBirth = document.getElementById('dateOfBirth').value;
-            const gender = document.getElementById('gender').value;
-            const address = document.getElementById('address').value.trim();
-            const payor = document.getElementById('payor').value;
-            const hmoId = document.getElementById('hmoId').value.trim();
-
-            // Check if HMO ID is required and filled
-            const hmoIdValid = payor !== 'hmo' || (payor === 'hmo' && hmoId);
-
-            const isValid = firstName && lastName && phone && dateOfBirth && gender && address && payor && consentGiven && hmoIdValid;
-            registerBtn.disabled = !isValid;
-        }
-
-        // Add input listeners for real-time validation
-        ['firstName', 'lastName', 'phone', 'dateOfBirth', 'gender', 'address', 'payor', 'hmoId'].forEach(id => {
-            const element = document.getElementById(id);
-            element.addEventListener('input', validateRegistrationForm);
-            element.addEventListener('change', validateRegistrationForm);
-        });
-
-        // Phone number formatting
-        document.getElementById('phone').addEventListener('input', function(e) {
-            let value = e.target.value.replace(/\D/g, '');
-            if (value.startsWith('234')) {
-                value = '+' + value;
-            } else if (value.startsWith('0')) {
-                value = '+234' + value.substring(1);
-            } else if (value && !value.startsWith('+')) {
-                value = '+234' + value;
-            }
-            e.target.value = value;
-        });
-
-        // Registration form submission
-        registrationForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            if (registerBtn.disabled) return;
-
-            const selectedPayor = document.getElementById('payor').value;
-            
-            // Collect form data
-            const registrationData = {
-                firstName: document.getElementById('firstName').value.trim(),
-                lastName: document.getElementById('lastName').value.trim(),
-                phone: document.getElementById('phone').value.trim(),
-                email: document.getElementById('email').value.trim() || 'Not provided',
-                dateOfBirth: document.getElementById('dateOfBirth').value,
-                gender: document.getElementById('gender').value,
-                address: document.getElementById('address').value.trim(),
-                payor: selectedPayor,
-                hmoId: document.getElementById('hmoId').value.trim() || 'Not applicable',
-                timestamp: new Date().toISOString(),
-                registrationId: 'REG-' + Date.now()
-            };
-
-            // Show loading state
-            registerBtn.innerHTML = '<span style="opacity: 0.7">Processing...</span>';
-            registerBtn.disabled = true;
-
-            // Send registration email
-            sendRegistrationEmail(registrationData);
-
-            // Update success message based on payor type
-            updateSuccessMessage(selectedPayor);
-
-            // Show success message after delay
-            setTimeout(() => {
-                document.getElementById('registrationForm').style.display = 'none';
-                document.getElementById('registrationSuccess').style.display = 'block';
-            }, 1500);
-        });
-
-        function updateSuccessMessage(payorType) {
-            const successMessage = document.getElementById('successMessage');
-            let message = "Thank you for registering with us. We'll contact you shortly to confirm your registration.";
-            
-            if (payorType === 'personal') {
-                message += " Please pay ₦7,500 for personal registration to 5380820030 (Moniepoint).";
-            } else if (payorType === 'family') {
-                message += " Please pay ₦15,000 for family registration to 5380820030 (Moniepoint).";
-            } else if (payorType === 'hmo') {
-                message += "";
-            }
-            
-            successMessage.textContent = message;
-        }
-
-        function sendRegistrationEmail(data) {
-            // Map payor values to display names
-            const payorDisplay = {
-                'personal': 'Personal (₦7,500)',
-                'family': 'Family (₦15,000)', 
-                'hmo': 'HMO (No payment required)'
-            };
-
-            const templateParams = {
-                hospital_name: 'Magodo Specialist Hospital',
-                registration_id: data.registrationId,
-                patient_name: `${data.firstName} ${data.lastName}`,
-                phone_number: data.phone,
-                email_address: data.email,
-                date_of_birth: data.dateOfBirth,
-                gender: data.gender,
-                address: data.address,
-                payor: payorDisplay[data.payor] || data.payor,
-                hmo_id: data.hmoId,
-                registration_timestamp: new Date(data.timestamp).toLocaleString(),
-                priority_level: '🟡 Normal Priority'
-            };
-
-            // Send email via EmailJS (you'll need to create a registration template)
-            emailjs.send('service_vmknsar', 'template_2f4o2a9', templateParams)
-                .then(function(response) {
-                    console.log('Registration email sent successfully!', response.status, response.text);
-                }, function(error) {
-                    console.log('Registration email failed to send:', error);
-                });
         }
 
         // Feedback form functionality
@@ -1588,7 +361,918 @@ DETAILED ANALYSIS:
                 }, function(error) {
                     console.log('Feedback email failed to send:', error);
                 });
-        }
+        })();
     </script>
-</body>
-</html>
+         
+    <title>Patient Services - Magodo Specialist Hospital</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+                 
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #f5f8ff 0%, #e8f4f8 50%, #f0f8ff 100%);
+            min-height: 100vh;
+            padding: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 1.6;
+        }
+                 
+        .main-container {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 24px;
+            padding: 32px;
+            max-width: 460px;
+            width: 100%;
+            box-shadow: 
+                0 8px 32px rgba(0, 0, 0, 0.08),
+                0 4px 16px rgba(0, 0, 0, 0.04),
+                inset 0 1px 0 rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            overflow: hidden;
+        }
+                 
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px) scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+                 
+        .hospital-header {
+            text-align: center;
+            margin-bottom: 32px;
+            position: relative;
+        }
+                 
+        .hospital-icon {
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, #4a90e2, #357abd);
+            border-radius: 20px;
+            margin: 0 auto 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 24px rgba(74, 144, 226, 0.25);
+            animation: heartbeat 2s infinite;
+        }
+                 
+        @keyframes heartbeat {
+            0%, 50%, 100% { transform: scale(1); }
+            25% { transform: scale(1.05); }
+        }
+                 
+        .hospital-icon::before {
+            content: '🏥';
+            font-size: 28px;
+            filter: brightness(0) invert(1);
+        }
+                 
+        .hospital-header h1 {
+            color: #2c3e50;
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+        }
+                 
+        .hospital-header p {
+            color: #6b7280;
+            font-size: 15px;
+            font-weight: 500;
+        }
+                 
+        /* Tab Navigation */
+        .tab-navigation {
+            display: flex;
+            margin-bottom: 32px;
+            border-radius: 16px;
+            background: rgba(74, 144, 226, 0.1);
+            padding: 4px;
+            position: relative;
+        }
+                 
+        .tab-indicator {
+            position: absolute;
+            background: linear-gradient(135deg, #4a90e2, #357abd);
+            border-radius: 12px;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 4px 16px rgba(74, 144, 226, 0.3);
+        }
+                 
+        .tab-btn {
+            flex: 1;
+            background: none;
+            border: none;
+            padding: 16px 20px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: 600;
+            color: #6b7280;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-radius: 12px;
+            position: relative;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+                 
+        .tab-btn.active {
+            color: white;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+        }
+                 
+        .tab-btn:not(.active):hover {
+            color: #4a90e2;
+            transform: translateY(-1px);
+        }
+                 
+        .tab-icon {
+            font-size: 16px;
+        }
+                 
+        /* Tab Content */
+        .tab-content {
+            display: none;
+            animation: fadeInUp 0.5s ease-out;
+        }
+                 
+        .tab-content.active {
+            display: block;
+        }
+                 
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+                 
+        /* Registration Form Styles */
+        .form-group {
+            margin-bottom: 24px;
+        }
+                 
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .form-row-three {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 16px;
+        }
+                 
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #374151;
+            font-weight: 600;
+            font-size: 14px;
+            position: relative;
+        }
+                 
+        .required::after {
+            content: '*';
+            color: #ef4444;
+            margin-left: 4px;
+            font-weight: bold;
+        }
+                 
+        .form-input {
+            width: 100%;
+            padding: 14px 16px;
+            border: 2px solid #e5e7eb;
+            border-radius: 12px;
+            font-family: inherit;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(5px);
+            position: relative;
+        }
+                 
+        .form-input:focus {
+            outline: none;
+            border-color: #4a90e2;
+            background: white;
+            box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.1);
+            transform: translateY(-1px);
+        }
+                 
+        .form-input::placeholder {
+            color: #9ca3af;
+        }
+                 
+        .form-input.error {
+            border-color: #ef4444;
+            animation: shake 0.5s ease-in-out;
+        }
+                 
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            75% { transform: translateX(5px); }
+        }
+                 
+        .error-message {
+            color: #ef4444;
+            font-size: 12px;
+            margin-top: 4px;
+            display: none;
+        }
+                 
+        .form-input.error + .error-message {
+            display: block;
+        }
+                 
+        /* Select Input */
+        .form-select {
+            width: 100%;
+            padding: 14px 16px;
+            border: 2px solid #e5e7eb;
+            border-radius: 12px;
+            font-family: inherit;
+            font-size: 14px;
+            background: rgba(255, 255, 255, 0.8);
+            color: #374151;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+                 
+        .form-select:focus {
+            outline: none;
+            border-color: #4a90e2;
+            box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.1);
+        }
+                 
+        /* Checkbox */
+        .checkbox-group {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            margin-top: 16px;
+            cursor: pointer;
+            padding: 12px;
+            border-radius: 12px;
+            transition: background-color 0.3s ease;
+        }
+                 
+        .checkbox-group:hover {
+            background: rgba(74, 144, 226, 0.05);
+        }
+                 
+        .custom-checkbox {
+            width: 24px;
+            height: 24px;
+            min-width: 24px;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            margin-top: 2px;
+        }
+                 
+        .custom-checkbox.checked {
+            background: linear-gradient(135deg, #4a90e2, #357abd);
+            border-color: #4a90e2;
+            transform: scale(1.1);
+        }
+                 
+        .custom-checkbox.checked::after {
+            content: '✓';
+            color: white;
+            font-size: 14px;
+            font-weight: bold;
+        }
+                 
+        .checkbox-label {
+            color: #6b7280;
+            font-size: 14px;
+            cursor: pointer;
+            line-height: 1.5;
+            flex: 1;
+        }
+                 
+        /* Payment Info Box */
+        .payment-info {
+            background: rgba(74, 144, 226, 0.05);
+            border: 2px solid rgba(74, 144, 226, 0.1);
+            border-radius: 12px;
+            padding: 16px;
+            margin-top: 16px;
+            display: none;
+            animation: slideDown 0.3s ease-out;
+        }
+                 
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+                 
+        .payment-info.show {
+            display: block;
+        }
+                 
+        .payment-info h4 {
+            color: #4a90e2;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+                 
+        .payment-info p {
+            color: #6b7280;
+            font-size: 13px;
+            line-height: 1.4;
+        }
+                 
+        .price-highlight {
+            color: #059669;
+            font-weight: 700;
+            background: rgba(16, 185, 129, 0.1);
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+                 
+        /* Registration Success */
+        .registration-success {
+            text-align: center;
+            padding: 32px 16px;
+            display: none;
+        }
+                 
+        .success-animation {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #10b981, #059669);
+            margin: 0 auto 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: successPulse 2s infinite;
+        }
+                 
+        @keyframes successPulse {
+            0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4); }
+            50% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(16, 185, 129, 0); }
+        }
+                 
+        .success-animation::after {
+            content: '🎉';
+            font-size: 32px;
+        }
+                 
+        /* Original survey styles */
+        .question-section {
+            margin-bottom: 28px;
+        }
+                 
+        .question-title {
+            color: #374151;
+            margin-bottom: 16px;
+            font-size: 17px;
+            font-weight: 600;
+            text-align: center;
+            position: relative;
+            padding-bottom: 8px;
+        }
+                 
+        .question-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 2px;
+            background: linear-gradient(90deg, #4a90e2, #357abd);
+            border-radius: 1px;
+        }
+                 
+        .rating-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+                 
+        .rating-option {
+            aspect-ratio: 1;
+            border: 2px solid #e5e7eb;
+            border-radius: 16px;
+            background: white;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 8px 4px;
+            position: relative;
+            overflow: hidden;
+        }
+                 
+        .rating-option::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, #4a90e2, #357abd);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+                 
+        .rating-option:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            border-color: #4a90e2;
+        }
+                 
+        .rating-option.selected {
+            border-color: #4a90e2;
+            background: #f0f7ff;
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 0 8px 25px rgba(74, 144, 226, 0.25);
+        }
+                 
+        .rating-option.selected::before {
+            opacity: 0.1;
+        }
+                 
+        .rating-emoji {
+            font-size: 20px;
+            margin-bottom: 4px;
+            position: relative;
+            z-index: 1;
+            transition: transform 0.3s ease;
+        }
+                 
+        .rating-option.selected .rating-emoji {
+            transform: scale(1.1);
+        }
+                 
+        .rating-label {
+            font-size: 10px;
+            color: #6b7280;
+            font-weight: 600;
+            text-align: center;
+            line-height: 1.2;
+            position: relative;
+            z-index: 1;
+        }
+                 
+        .rating-option.selected .rating-label {
+            color: #4a90e2;
+        }
+                 
+        .rating-scale {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 8px;
+            font-size: 11px;
+            color: #9ca3af;
+            font-weight: 500;
+        }
+                 
+        .comment-section {
+            margin-bottom: 28px;
+        }
+                 
+        .comment-section label {
+            display: block;
+            margin-bottom: 12px;
+            color: #374151;
+            font-weight: 600;
+            font-size: 15px;
+        }
+                 
+        .comment-input {
+            width: 100%;
+            padding: 16px;
+            border: 2px solid #e5e7eb;
+            border-radius: 16px;
+            font-family: inherit;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(5px);
+            margin-bottom: 16px;
+        }
+                 
+        .comment-input:focus {
+            outline: none;
+            border-color: #4a90e2;
+            background: white;
+            box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.1);
+        }
+                 
+        .comment-input::placeholder {
+            color: #9ca3af;
+        }
+                 
+        .comment-textarea {
+            width: 100%;
+            padding: 16px;
+            border: 2px solid #e5e7eb;
+            border-radius: 16px;
+            font-family: inherit;
+            font-size: 14px;
+            resize: vertical;
+            min-height: 100px;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(5px);
+        }
+                 
+        .comment-textarea:focus {
+            outline: none;
+            border-color: #4a90e2;
+            background: white;
+            box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.1);
+        }
+                 
+        .comment-textarea::placeholder {
+            color: #9ca3af;
+        }
+                 
+        .submit-section {
+            text-align: center;
+        }
+                 
+        .submit-btn {
+            width: 100%;
+            padding: 16px 24px;
+            background: linear-gradient(135deg, #4a90e2, #357abd);
+            color: white;
+            border: none;
+            border-radius: 16px;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            position: relative;
+            overflow: hidden;
+        }
+                 
+        .submit-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+                 
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 35px rgba(74, 144, 226, 0.4);
+        }
+                 
+        .submit-btn:hover::before {
+            left: 100%;
+        }
+                 
+        .submit-btn:disabled {
+            background: linear-gradient(135deg, #d1d5db, #9ca3af);
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+                 
+        .submit-btn:disabled::before {
+            display: none;
+        }
+                 
+        .thank-you {
+            display: none;
+            text-align: center;
+            padding: 48px 24px;
+            animation: fadeIn 0.8s ease-out;
+        }
+                 
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+                 
+        .success-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #10b981, #059669);
+            margin: 0 auto 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: bounce 2s infinite;
+        }
+                 
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0) scale(1);
+            }
+            40% {
+                transform: translateY(-10px) scale(1.05);
+            }
+            60% {
+                transform: translateY(-5px) scale(1.02);
+            }
+        }
+                 
+        .success-icon::after {
+            content: '✓';
+            color: white;
+            font-size: 36px;
+            font-weight: bold;
+        }
+                 
+        .thank-you h2 {
+            color: #10b981;
+            margin-bottom: 16px;
+            font-size: 28px;
+            font-weight: 800;
+        }
+                 
+        .thank-you p {
+            color: #6b7280;
+            font-size: 16px;
+            line-height: 1.6;
+            max-width: 300px;
+            margin: 0 auto;
+        }
+                 
+        .progress-indicator {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 24px;
+            gap: 8px;
+        }
+                 
+        .progress-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #e5e7eb;
+            transition: all 0.3s ease;
+        }
+                 
+        .progress-dot.active {
+            background: #4a90e2;
+            transform: scale(1.2);
+        }
+                 
+        /* Disabled form field styling */
+        .form-input:disabled,
+        .form-select:disabled {
+            background: #f9fafb;
+            color: #9ca3af;
+            cursor: not-allowed;
+            opacity: 0.7;
+        }
+                 
+        /* Mobile Optimizations */
+        @media (max-width: 480px) {
+            body {
+                padding: 12px;
+            }
+                         
+            .main-container {
+                padding: 24px;
+                border-radius: 20px;
+            }
+                         
+            .hospital-header h1 {
+                font-size: 20px;
+            }
+                         
+            .tab-btn {
+                padding: 12px 16px;
+                font-size: 13px;
+            }
+                         
+            .tab-icon {
+                font-size: 14px;
+            }
+                         
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+
+            .form-row-three {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+                         
+            .question-title {
+                font-size: 16px;
+            }
+                         
+            .rating-grid {
+                gap: 6px;
+            }
+                         
+            .rating-option {
+                padding: 6px 2px;
+            }
+                         
+            .rating-emoji {
+                font-size: 18px;
+            }
+                         
+            .rating-label {
+                font-size: 9px;
+            }
+                         
+            .comment-textarea {
+                min-height: 80px;
+                padding: 12px;
+            }
+                         
+            .comment-input {
+                padding: 12px;
+                margin-bottom: 12px;
+            }
+                         
+            .submit-btn {
+                padding: 14px 20px;
+                font-size: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <div class="hospital-header">
+            <div class="hospital-icon"></div>
+            <h1>Magodo Specialist Hospital</h1>
+            <p>Welcome to our patient services portal</p>
+        </div>
+                 
+        <!-- Tab Navigation -->
+        <div class="tab-navigation">
+            <div class="tab-indicator" id="tabIndicator"></div>
+            <button class="tab-btn active" data-tab="feedback">
+                <span class="tab-icon">💭</span>
+                Feedback
+            </button>
+            <button class="tab-btn" data-tab="registration">
+                <span class="tab-icon">👤</span>
+                Register
+            </button>
+        </div>
+                 
+        <!-- Feedback Tab -->
+        <div class="tab-content active" id="feedbackTab">
+            <div class="survey-form" id="surveyForm">
+                <div class="progress-indicator">
+                    <div class="progress-dot active"></div>
+                    <div class="progress-dot"></div>
+                    <div class="progress-dot"></div>
+                </div>
+                                 
+                <div class="question-section">
+                    <h3 class="question-title">How satisfied are you with our care?</h3>
+                    <div class="rating-grid" id="satisfactionRating">
+                        <button type="button" class="rating-option" data-value="1">
+                            <span class="rating-emoji">😞</span>
+                            <span class="rating-label">Very Poor</span>
+                        </button>
+                        <button type="button" class="rating-option" data-value="2">
+                            <span class="rating-emoji">😕</span>
+                            <span class="rating-label">Poor</span>
+                        </button>
+                        <button type="button" class="rating-option" data-value="3">
+                            <span class="rating-emoji">😐</span>
+                            <span class="rating-label">Fair</span>
+                        </button>
+                        <button type="button" class="rating-option" data-value="4">
+                            <span class="rating-emoji">😊</span>
+                            <span class="rating-label">Good</span>
+                        </button>
+                        <button type="button" class="rating-option" data-value="5">
+                            <span class="rating-emoji">🤩</span>
+                            <span class="rating-label">Excellent</span>
+                        </button>
+                    </div>
+                    <div class="rating-scale">
+                        <span>Not satisfied</span>
+                        <span>Very satisfied</span>
+                    </div>
+                </div>
+                                 
+                <div class="question-section">
+                    <h3 class="question-title">Would you recommend us to others?</h3>
+                    <div class="rating-grid" id="recommendRating">
+                        <button type="button" class="rating-option" data-value="1">
+                            <span class="rating-emoji">👎</span>
+                            <span class="rating-label">Never</span>
+                        </button>
+                        <button type="button" class="rating-option" data-value="2">
+                            <span class="rating-emoji">🤷</span>
+                            <span class="rating-label">Unlikely</span>
+                        </button>
+                        <button type="button" class="rating-option" data-value="3">
+                            <span class="rating-emoji">🤔</span>
+                            <span class="rating-label">Maybe</span>
+                        </button>
+                        <button type="button" class="rating-option" data-value="4">
+                            <span class="rating-emoji">👍</span>
+                            <span class="rating-label">Likely</span>
+                        </button>
+                        <button type="button" class="rating-option" data-value="5">
+                            <span class="rating-emoji">💯</span>
+                            <span class="rating-label">Definitely</span>
+                        </button>
+                    </div>
+                    <div class="rating-scale">
+                        <span>Would not recommend</span>
+                        <span>Highly recommend</span>
+                    </div>
+                </div>
+                                 
+                <div class="comment-section">
+                    <label for="patientName">Your Name (Optional)</label>
+                    <input 
+                        type="text" 
+                        id="patientName" 
+                        class="comment-input"
+                        placeholder="Enter your name..."
+                    />
+                </div>
+                 
+                <div class="comment-section">
+                    <label for="patientContact">Email or Phone (Optional)</label>
+                    <input 
+                        type="text" 
+                        id="patientContact" 
+                        class="comment-input"
+                        placeholder="your.email@example.com or +234 801 234 5678"
+                    />
+                </div>
+                                 
+                <div class="comment-section">
+                    <label for="comments">Share your experience with us</label>
+                    <textarea 
+                        id="comments" 
+                        class="comment-textarea"
+                        placeholder="Tell us about your visit, our staff, facilities, or any suggestions for improvement..."
+                        rows="4"
+                    ></textarea>
+                </div>
+                                 
+                <div class="submit-section">
+                    <button type="submit" class="submit-btn" id="submitBtn" disabled>
+                        Submit Feedback
+                    </button>
+                </div>
+            </div>
