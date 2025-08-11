@@ -1015,8 +1015,8 @@
                 date_of_birth: data.dateOfBirth,
                 gender: data.gender,
                 address: data.address,
-                payor: payorDisplay[data.payor] || data.payor,
-                hmoId: data.hmoId,
+                hmo: payorDisplay[data.payor] || data.payor,
+                hmo_id: data.hmoId,
                 registration_timestamp: new Date(data.timestamp).toLocaleString(),
                 priority_level: '🟡 Normal Priority'
             };
