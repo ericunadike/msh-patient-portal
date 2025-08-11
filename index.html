@@ -605,6 +605,10 @@
             cursor: not-allowed;
             opacity: 0.7;
         }
+        .form-input[type="date"]::-webkit-calendar-picker-indicator {
+            cursor: pointer;
+            filter: brightness(0.6);
+        }
         @media (max-width: 480px) {
             body { padding: 12px; }
             .main-container { padding: 24px; border-radius: 20px; }
@@ -620,6 +624,11 @@
             .comment-textarea { min-height: 80px; padding: 12px; }
             .comment-input { padding: 12px; margin-bottom: 12px; }
             .submit-btn { padding: 14px 20px; font-size: 15px; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .hospital-icon, .success-animation, .submit-btn::before {
+                animation: none;
+            }
         }
     </style>
 </head>
@@ -762,8 +771,8 @@
                     </div>
                     <div class="form-group">
                         <label for="dateOfBirth" class="required">Date of Birth</label>
-                        <input type="text" id="dateOfBirth" class="form-input" placeholder="DD/MM/YYYY" required pattern="\d{2}/\d{2}/\d{4}">
-                        <div class="error-message">Please enter your date of birth in DD/MM/YYYY format</div>
+                        <input type="date" id="dateOfBirth" class="form-input" required>
+                        <div class="error-message">Please select your date of birth</div>
                     </div>
                 </div>
                 <div class="form-row">
@@ -931,26 +940,30 @@
             }
             e.target.value = value;
         });
-        document.getElementById('dateOfBirth').addEventListener('input', function(e) {
-            let value = e.target.value.replace(/\D/g, '');
-            if (value.length >= 2 && value.length < 4) {
-                value = value.slice(0, 2) + '/' + value.slice(2);
-            } else if (value.length >= 4) {
-                value = value.slice(0, 2) + '/' + value.slice(2, 4) + '/' + value.slice(4, 8);
+        document.getElementById('dateOfBirth').addEventListener('change', function(e) {
+            const dateInput = e.target;
+            if (dateInput.value) {
+                const date = new Date(dateInput.value);
+                const day = String(date.getDate()).padStart(2, '0');
+                const month = String(date.getMonth() + 1).padStart(2, '0');
+                const year = date.getFullYear();
+                dateInput.dataset.formattedValue = `${day}/${month}/${year}`;
+            } else {
+                dateInput.dataset.formattedValue = '';
             }
-            e.target.value = value;
         });
         registrationForm.addEventListener('submit', function(e) {
             e.preventDefault();
             if (registerBtn.disabled) return;
             const selectedPayor = document.getElementById('payor').value;
+            const dateOfBirthInput = document.getElementById('dateOfBirth');
             const registrationData = {
                 lastName: document.getElementById('lastName').value.trim(),
                 firstName: document.getElementById('firstName').value.trim(),
                 middleName: document.getElementById('middleName').value.trim() || 'Not provided',
                 phone: document.getElementById('phone').value.trim(),
                 email: document.getElementById('email').value.trim() || 'Not provided',
-                dateOfBirth: document.getElementById('dateOfBirth').value,
+                dateOfBirth: dateOfBirthInput.dataset.formattedValue || dateOfBirthInput.value,
                 gender: document.getElementById('gender').value,
                 address: document.getElementById('address').value.trim(),
                 payor: selectedPayor,
