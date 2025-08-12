@@ -28,7 +28,7 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background: linear-gradient(135deg, #58CC02 0%, #89E219 30%, #58CC02 70%, #4CAF50 100%);
+            background: #f5f6f5;
             min-height: 100vh;
             padding: 8px;
             display: flex;
@@ -39,7 +39,6 @@
             overflow-x: hidden;
         }
 
-        /* Fun floating elements */
         body::before {
             content: '🏥 ❤️ 😊 💚 🌟 ✨ 💫 🎉';
             position: fixed;
@@ -65,10 +64,10 @@
             max-width: 420px;
             width: 100%;
             box-shadow: 
-                0 20px 60px rgba(88, 204, 2, 0.3),
-                0 10px 30px rgba(88, 204, 2, 0.15),
+                0 20px 60px rgba(255, 255, 255, 0.3),
+                0 10px 30px rgba(255, 255, 255, 0.15),
                 inset 0 1px 0 rgba(255, 255, 255, 0.9);
-            border: 3px solid rgba(88, 204, 2, 0.2);
+            border: 3px solid rgba(255, 255, 255, 0.2);
             animation: bounceIn 1s cubic-bezier(0.68, -0.55, 0.265, 1.55);
             position: relative;
             z-index: 1;
@@ -90,7 +89,7 @@
         .hospital-icon {
             width: 80px;
             height: 80px;
-            background: linear-gradient(135deg, #58CC02, #89E219);
+            background: #58CC02;
             border-radius: 50%;
             margin: 0 auto 16px;
             display: flex;
@@ -141,15 +140,11 @@
         }
 
         .hospital-header h1 {
-            color: #2d3436;
+            color: #58CC02;
             font-size: 22px;
             font-weight: 800;
             margin-bottom: 8px;
             letter-spacing: -0.5px;
-            background: linear-gradient(135deg, #58CC02, #2d3436);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
         }
 
         .hospital-header p {
@@ -170,9 +165,9 @@
 
         .tab-indicator {
             position: absolute;
-            background: linear-gradient(135deg, #58CC02, #89E219);
+            background: #58CC02;
             border-radius: 16px;
-            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
             box-shadow: 
                 0 4px 20px rgba(88, 204, 2, 0.4),
                 0 0 0 2px rgba(255, 255, 255, 0.5);
@@ -188,7 +183,7 @@
             font-weight: 700;
             color: #636e72;
             cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             border-radius: 16px;
             position: relative;
             z-index: 2;
@@ -218,7 +213,7 @@
 
         .tab-content {
             display: none;
-            animation: slideInUp 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            animation: slideInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .tab-content.active {
@@ -278,6 +273,8 @@
             transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             background: rgba(255, 255, 255, 0.9);
             backdrop-filter: blur(10px);
+            word-wrap: break-word;
+            overflow-wrap: break-word;
         }
 
         .form-input:focus {
@@ -293,6 +290,7 @@
         .form-input::placeholder {
             color: #a0a0a0;
             font-weight: 500;
+            font-size: 13px;
         }
 
         .form-input.error {
@@ -347,12 +345,16 @@
             transform: translateY(-2px);
         }
 
+        .form-select option:checked {
+            background: #58CC02;
+            color: white;
+        }
+
         .checkbox-group {
             display: flex;
             align-items: flex-start;
             gap: 16px;
             margin-top: 16px;
-            cursor: pointer;
             padding: 16px;
             border-radius: 16px;
             transition: all 0.3s ease;
@@ -381,7 +383,7 @@
         }
 
         .custom-checkbox.checked {
-            background: linear-gradient(135deg, #58CC02, #89E219);
+            background: #58CC02;
             border-color: #58CC02;
             transform: scale(1.1) rotate(5deg);
             box-shadow: 0 4px 15px rgba(88, 204, 2, 0.3);
@@ -407,10 +409,12 @@
             cursor: pointer;
             line-height: 1.5;
             flex: 1;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
         }
 
         .payment-info {
-            background: linear-gradient(135deg, rgba(88, 204, 2, 0.1), rgba(137, 226, 25, 0.1));
+            background: rgba(88, 204, 2, 0.1);
             border: 3px solid rgba(88, 204, 2, 0.2);
             border-radius: 20px;
             padding: 20px;
@@ -455,6 +459,8 @@
             font-size: 14px;
             font-weight: 500;
             line-height: 1.6;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
         }
 
         .price-highlight {
@@ -464,6 +470,9 @@
             padding: 4px 8px;
             border-radius: 8px;
             font-size: 16px;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            display: inline-block;
         }
 
         .question-section {
@@ -477,11 +486,13 @@
         .question-title {
             color: #2d3436;
             margin-bottom: 20px;
-            font-size: 18px;
+            font-size: 16px;
             font-weight: 800;
             text-align: center;
             position: relative;
             padding-bottom: 12px;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
         }
 
         .question-title::after {
@@ -492,7 +503,7 @@
             transform: translateX(-50%);
             width: 60px;
             height: 4px;
-            background: linear-gradient(90deg, #58CC02, #89E219);
+            background: #58CC02;
             border-radius: 2px;
             animation: glow 2s infinite;
         }
@@ -520,7 +531,7 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            padding: 8px 4px;
+            padding: 6px 2px;
             position: relative;
             overflow: hidden;
         }
@@ -532,7 +543,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(135deg, #58CC02, #89E219);
+            background: #58CC02;
             opacity: 0;
             transition: opacity 0.3s ease;
         }
@@ -557,8 +568,8 @@
         }
 
         .rating-emoji {
-            font-size: 24px;
-            margin-bottom: 4px;
+            font-size: 20px;
+            margin-bottom: 2px;
             position: relative;
             z-index: 1;
             transition: transform 0.3s ease;
@@ -577,15 +588,19 @@
         }
 
         .rating-label {
-            font-size: 10px;
+            font-size: 7px;
             color: #636e72;
             font-weight: 700;
             text-align: center;
-            line-height: 1.2;
+            line-height: 1.1;
             position: relative;
             z-index: 1;
             text-transform: uppercase;
-            letter-spacing: 0.3px;
+            letter-spacing: 0.2px;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
+            max-width: 100%;
         }
 
         .rating-option.selected .rating-label {
@@ -596,9 +611,11 @@
             display: flex;
             justify-content: space-between;
             margin-top: 12px;
-            font-size: 12px;
+            font-size: 11px;
             color: #a0a0a0;
             font-weight: 600;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
         }
 
         .comment-section {
@@ -610,7 +627,9 @@
             margin-bottom: 12px;
             color: #2d3436;
             font-weight: 700;
-            font-size: 15px;
+            font-size: 14px;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
         }
 
         .comment-input, .comment-textarea {
@@ -624,6 +643,8 @@
             transition: all 0.3s ease;
             background: rgba(255, 255, 255, 0.9);
             backdrop-filter: blur(10px);
+            word-wrap: break-word;
+            overflow-wrap: break-word;
         }
 
         .comment-textarea {
@@ -645,6 +666,7 @@
         .comment-input::placeholder, .comment-textarea::placeholder {
             color: #a0a0a0;
             font-weight: 500;
+            font-size: 13px;
         }
 
         .submit-section {
@@ -655,7 +677,7 @@
         .submit-btn {
             width: 100%;
             padding: 18px 24px;
-            background: linear-gradient(135deg, #58CC02, #89E219);
+            background: #58CC02;
             color: white;
             border: none;
             border-radius: 20px;
@@ -670,6 +692,8 @@
             box-shadow: 
                 0 8px 30px rgba(88, 204, 2, 0.4),
                 inset 0 1px 0 rgba(255, 255, 255, 0.3);
+            word-wrap: break-word;
+            overflow-wrap: break-word;
         }
 
         .submit-btn::before {
@@ -702,7 +726,7 @@
         }
 
         .submit-btn:disabled {
-            background: linear-gradient(135deg, #ddd, #bbb);
+            background: #ddd;
             cursor: not-allowed;
             transform: none;
             box-shadow: none;
@@ -730,7 +754,7 @@
             width: 100px;
             height: 100px;
             border-radius: 50%;
-            background: linear-gradient(135deg, #58CC02, #89E219);
+            background: #58CC02;
             margin: 0 auto 24px;
             display: flex;
             align-items: center;
@@ -764,6 +788,8 @@
             font-size: 28px;
             font-weight: 800;
             animation: textPop 1s ease-out 0.5s both;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
         }
 
         @keyframes textPop {
@@ -779,6 +805,8 @@
             max-width: 320px;
             margin: 0 auto;
             animation: textPop 1s ease-out 0.7s both;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
         }
 
         .progress-indicator {
@@ -797,12 +825,11 @@
         }
 
         .progress-dot.active {
-            background: linear-gradient(135deg, #58CC02, #89E219);
+            background: #58CC02;
             transform: scale(1.3);
             box-shadow: 0 4px 15px rgba(88, 204, 2, 0.3);
         }
 
-        /* Mobile optimizations */
         @media (max-width: 480px) {
             body { 
                 padding: 8px;
@@ -829,9 +856,9 @@
             }
             
             .tab-btn { 
-                padding: 14px 12px; 
-                font-size: 12px;
-                gap: 6px;
+                padding: 14px 8px; 
+                font-size: 11px;
+                gap: 4px;
             }
             
             .tab-icon { 
@@ -844,24 +871,26 @@
             }
             
             .question-title { 
-                font-size: 16px; 
+                font-size: 14px; 
             }
             
             .rating-grid { 
-                gap: 6px; 
+                gap: 4px; 
             }
             
             .rating-option { 
-                padding: 6px 2px; 
+                padding: 4px 1px; 
                 border-radius: 16px;
             }
             
             .rating-emoji { 
-                font-size: 20px; 
+                font-size: 16px; 
+                margin-bottom: 1px;
             }
             
             .rating-label { 
-                font-size: 9px; 
+                font-size: 6px; 
+                line-height: 1.0;
             }
             
             .comment-textarea { 
@@ -903,9 +932,16 @@
             .thank-you h2, .registration-success h2 {
                 font-size: 24px;
             }
+            
+            .form-input::placeholder, .comment-input::placeholder, .comment-textarea::placeholder {
+                font-size: 12px;
+            }
+            
+            .rating-scale {
+                font-size: 9px;
+            }
         }
 
-        /* Extra small screens */
         @media (max-width: 360px) {
             .main-container {
                 padding: 16px;
@@ -916,28 +952,36 @@
             }
             
             .tab-btn {
-                padding: 12px 8px;
-                font-size: 11px;
+                padding: 12px 6px;
+                font-size: 10px;
+                gap: 2px;
             }
             
             .rating-grid {
-                gap: 4px;
+                gap: 2px;
             }
             
             .rating-option {
-                padding: 4px 2px;
+                padding: 2px 1px;
             }
             
             .rating-emoji {
-                font-size: 18px;
+                font-size: 14px;
             }
             
             .rating-label {
+                font-size: 5px;
+            }
+            
+            .rating-scale {
                 font-size: 8px;
+            }
+            
+            .form-input::placeholder, .comment-input::placeholder, .comment-textarea::placeholder {
+                font-size: 11px;
             }
         }
 
-        /* Reduced motion preferences */
         @media (prefers-reduced-motion: reduce) {
             .hospital-icon, .success-animation, .submit-btn::before, 
             .success-icon, body::before, .hospital-icon::after,
@@ -950,7 +994,6 @@
             }
         }
 
-        /* Enhanced focus styles for accessibility */
         .tab-btn:focus-visible,
         .form-input:focus-visible,
         .form-select:focus-visible,
@@ -961,62 +1004,56 @@
             outline-offset: 2px;
         }
 
-        /* Dark mode support */
-        @media (prefers-color-scheme: dark) {
-            .main-container {
-                background: rgba(42, 42, 42, 0.98);
-                border-color: rgba(88, 204, 2, 0.3);
-            }
-            
-            .hospital-header h1 {
-                color: #ffffff;
-                background: linear-gradient(135deg, #58CC02, #ffffff);
-                -webkit-background-clip: text;
-                -webkit-text-fill-color: transparent;
-            }
-            
-            .hospital-header p {
-                color: #b0b0b0;
-            }
-            
-            .form-group label,
-            .question-title,
-            .comment-section label {
-                color: #ffffff;
-            }
-            
-            .checkbox-label {
-                color: #b0b0b0;
-            }
-            
-            .form-input,
-            .form-select,
-            .comment-input,
-            .comment-textarea {
-                background: rgba(60, 60, 60, 0.9);
-                color: #ffffff;
-                border-color: #555;
-            }
-            
-            .form-input::placeholder,
-            .comment-input::placeholder,
-            .comment-textarea::placeholder {
-                color: #888;
-            }
-            
-            .rating-option {
-                background: rgba(60, 60, 60, 0.9);
-                border-color: #555;
-            }
-            
-            .rating-option.selected {
-                background: rgba(88, 204, 2, 0.1);
-            }
-            
-            .question-section {
-                background: rgba(88, 204, 2, 0.05);
-                border-color: rgba(88, 204, 2, 0.2);
-            }
+        .main-container {
+            background: rgba(255, 255, 255, 0.98);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+        
+        .hospital-header h1 {
+            color: #58CC02;
+        }
+        
+        .hospital-header p {
+            color: #636e72;
+        }
+        
+        .form-group label,
+        .question-title,
+        .comment-section label {
+            color: #2d3436;
+        }
+        
+        .checkbox-label {
+            color: #636e72;
+        }
+        
+        .form-input,
+        .form-select,
+        .comment-input,
+        .comment-textarea {
+            background: rgba(255, 255, 255, 0.9);
+            color: #2d3436;
+            border-color: #e9ecef;
+        }
+        
+        .form-input::placeholder,
+        .comment-input::placeholder,
+        .comment-textarea::placeholder {
+            color: #a0a0a0;
+        }
+        
+        .rating-option {
+            background: white;
+            border-color: #e9ecef;
+        }
+        
+        .rating-option.selected {
+            background: #f8fffe;
+        }
+        
+        .question-section {
+            background: rgba(88, 204, 2, 0.03);
+            border-color: rgba(88, 204, 2, 0.1);
         }
     </style>
 </head>
@@ -1025,7 +1062,7 @@
         <div class="hospital-header">
             <div class="hospital-icon"></div>
             <h1>Magodo Specialist Hospital</h1>
-            <p>Your health journey starts here! 🌟</p>
+            <p>Welcome to our patient portal 🌟</p>
         </div>
 
         <div class="tab-navigation">
@@ -1040,7 +1077,6 @@
             </button>
         </div>
 
-        <!-- Feedback Tab -->
         <div class="tab-content active" id="feedbackTab">
             <div class="survey-form" id="surveyForm">
                 <div class="progress-indicator">
@@ -1050,7 +1086,7 @@
                 </div>
 
                 <div class="question-section">
-                    <h3 class="question-title">How satisfied are you with our care? 🏥</h3>
+                    <h3 class="question-title">How satisfied are you with our care?</h3>
                     <div class="rating-grid" id="satisfactionRating">
                         <button type="button" class="rating-option" data-value="1">
                             <span class="rating-emoji">😞</span>
@@ -1080,7 +1116,7 @@
                 </div>
 
                 <div class="question-section">
-                    <h3 class="question-title">Would you recommend us? 🌟</h3>
+                    <h3 class="question-title">Would you recommend us?</h3>
                     <div class="rating-grid" id="recommendRating">
                         <button type="button" class="rating-option" data-value="1">
                             <span class="rating-emoji">👎</span>
@@ -1110,17 +1146,17 @@
                 </div>
 
                 <div class="comment-section">
-                    <label for="patientName">Your Name (Optional) 😊</label>
+                    <label for="patientName">Your Name (Optional)</label>
                     <input type="text" id="patientName" class="comment-input" placeholder="What should we call you?" />
                 </div>
 
                 <div class="comment-section">
-                    <label for="patientContact">Email or Phone (Optional) 📱</label>
-                    <input type="text" id="patientContact" class="comment-input" placeholder="your.email@example.com or +234 801 234 5678" />
+                    <label for="patientContact">Email or Phone (Optional)</label>
+                    <input type="text" id="patientContact" class="comment-input" placeholder="email@example.com or +234 801 234 5678" />
                 </div>
 
                 <div class="comment-section">
-                    <label for="comments">Share your experience! ✨</label>
+                    <label for="comments">Share your experience!</label>
                     <textarea id="comments" class="comment-textarea" placeholder="Tell us about your visit - we love hearing from you! Share what made you smile or how we can improve..." rows="4"></textarea>
                 </div>
 
@@ -1136,7 +1172,6 @@
             </div>
         </div>
 
-        <!-- Registration Tab -->
         <div class="tab-content" id="registrationTab">
             <form id="registrationForm">
                 <div class="form-row">
@@ -1164,6 +1199,21 @@
 
                 <div class="form-row">
                     <div class="form-group">
+                        <label for="maritalStatus" class="required">Marital Status</label>
+                        <select id="maritalStatus" class="form-select" required>
+                            <option value="">Select marital status</option>
+                            <option value="single">Single</option>
+                            <option value="married">Married</option>
+                            <option value="divorced">Divorced</option>
+                            <option value="widowed">Widowed</option>
+                            <option value="separated">Separated</option>
+                        </select>
+                        <div class="error-message">Please select your marital status</div>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
                         <label for="phone" class="required">Phone Number</label>
                         <input type="tel" id="phone" class="form-input" placeholder="+234 801 234 5678" required>
                         <div class="error-message">Please enter a valid phone number</div>
@@ -1173,7 +1223,7 @@
                 <div class="form-row">
                     <div class="form-group">
                         <label for="email">Email Address</label>
-                        <input type="email" id="email" class="form-input" placeholder="your.email@example.com">
+                        <input type="email" id="email" class="form-input" placeholder="email@example.com">
                         <div class="error-message">Please enter a valid email address</div>
                     </div>
                 </div>
@@ -1244,7 +1294,7 @@
                 <div class="checkbox-group" onclick="toggleConsent()">
                     <div class="custom-checkbox" id="consentCheckbox"></div>
                     <label class="checkbox-label">
-                        I consent to the processing of my personal information for medical purposes and agree to the hospital's privacy policy. 🛡️
+                        I consent to the processing of my personal information for medical purposes and agree to the hospital's privacy policy.
                     </label>
                 </div>
 
@@ -1287,13 +1337,11 @@
 
             currentTab = tabName;
 
-            // Add celebratory vibration on mobile
             if (navigator.vibrate) {
                 navigator.vibrate([50, 30, 100]);
             }
         }
 
-        // Initialize tab indicator
         setTimeout(() => switchTab('feedback'), 100);
 
         tabButtons.forEach(btn => {
@@ -1302,7 +1350,6 @@
             });
         });
 
-        // Registration form logic
         const registrationForm = document.getElementById('registrationForm');
         const consentCheckbox = document.getElementById('consentCheckbox');
         const registerBtn = document.getElementById('registerBtn');
@@ -1346,7 +1393,6 @@
             const checkbox = document.getElementById('consentCheckbox');
             checkbox.classList.toggle('checked', consentGiven);
             
-            // Add haptic feedback
             if (navigator.vibrate) {
                 navigator.vibrate(50);
             }
@@ -1357,6 +1403,7 @@
         function validateRegistrationForm() {
             const firstName = document.getElementById('firstName').value.trim();
             const lastName = document.getElementById('lastName').value.trim();
+            const maritalStatus = document.getElementById('maritalStatus').value;
             const phone = document.getElementById('phone').value.trim();
             const dateOfBirth = document.getElementById('dateOfBirth').value;
             const gender = document.getElementById('gender').value;
@@ -1367,19 +1414,17 @@
             const hmoOptions = ['aiico', 'anchor', 'axamansard', 'bastion', 'clearline', 'hygeia', 'leadway', 'nem', 'phillips', 'reliance', 'tht'];
             const hmoIdValid = !hmoOptions.includes(payor) || (hmoOptions.includes(payor) && hmoId);
 
-            const isValid = firstName && lastName && phone && dateOfBirth && gender && address && payor && consentGiven && hmoIdValid;
+            const isValid = firstName && lastName && maritalStatus && phone && dateOfBirth && gender && address && payor && consentGiven && hmoIdValid;
 
             registerBtn.disabled = !isValid;
         }
 
-        // Add event listeners for form validation
-        ['firstName', 'lastName', 'middleName', 'phone', 'dateOfBirth', 'gender', 'address', 'payor', 'hmoId'].forEach(id => {
+        ['firstName', 'lastName', 'middleName', 'maritalStatus', 'phone', 'dateOfBirth', 'gender', 'address', 'payor', 'hmoId'].forEach(id => {
             const element = document.getElementById(id);
             element.addEventListener('input', validateRegistrationForm);
             element.addEventListener('change', validateRegistrationForm);
         });
 
-        // Phone number formatting
         document.getElementById('phone').addEventListener('input', function(e) {
             let value = e.target.value.replace(/\D/g, '');
             if (value.startsWith('234')) {
@@ -1392,7 +1437,6 @@
             e.target.value = value;
         });
 
-        // Date formatting
         document.getElementById('dateOfBirth').addEventListener('change', function(e) {
             const dateInput = e.target;
             if (dateInput.value) {
@@ -1417,6 +1461,7 @@
                 lastName: document.getElementById('lastName').value.trim(),
                 firstName: document.getElementById('firstName').value.trim(),
                 middleName: document.getElementById('middleName').value.trim() || 'Not provided',
+                maritalStatus: document.getElementById('maritalStatus').value,
                 phone: document.getElementById('phone').value.trim(),
                 email: document.getElementById('email').value.trim() || 'Not provided',
                 dateOfBirth: dateOfBirthInput.dataset.formattedValue || dateOfBirthInput.value,
@@ -1474,6 +1519,7 @@
                 hospital_name: 'Magodo Specialist Hospital',
                 registration_id: data.registrationId,
                 patient_name: `${data.lastName} ${data.firstName}${data.middleName !== 'Not provided' ? ' ' + data.middleName : ''}`,
+                marital_status: data.maritalStatus,
                 phone_number: data.phone,
                 email_address: data.email,
                 date_of_birth: data.dateOfBirth,
@@ -1493,7 +1539,6 @@
                 });
         }
 
-        // Feedback form logic
         let satisfactionRating = null;
         let recommendRating = null;
 
@@ -1532,7 +1577,6 @@
                     recommendRating = value;
                 }
 
-                // Add haptic feedback
                 if (navigator.vibrate) {
                     navigator.vibrate([50, 20, 80]);
                 }
@@ -1797,7 +1841,6 @@
                 });
         }
 
-        // Add fun easter egg - Konami Code
         let konamiCode = [];
         const konamiSequence = [
             'ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown',
@@ -1810,14 +1853,13 @@
             konamiCode = konamiCode.slice(-10);
 
             if (JSON.stringify(konamiCode) === JSON.stringify(konamiSequence)) {
-                // Easter egg activated!
                 document.body.style.animation = 'rainbow 2s infinite';
                 document.body.style.background = 'linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #ffd93d, #6c5ce7)';
                 document.body.style.backgroundSize = '400% 400%';
                 
                 setTimeout(() => {
                     document.body.style.animation = '';
-                    document.body.style.background = 'linear-gradient(135deg, #58CC02 0%, #89E219 30%, #58CC02 70%, #4CAF50 100%)';
+                    document.body.style.background = '#f5f6f5';
                 }, 3000);
 
                 if (navigator.vibrate) {
@@ -1826,7 +1868,6 @@
             }
         });
 
-        // Add CSS for rainbow animation
         const style = document.createElement('style');
         style.textContent = `
             @keyframes rainbow {
@@ -1837,9 +1878,7 @@
         `;
         document.head.appendChild(style);
 
-        // Add fun click effects
         document.addEventListener('click', function(e) {
-            // Create sparkle effect
             const sparkle = document.createElement('div');
             sparkle.innerHTML = '✨';
             sparkle.style.position = 'fixed';
@@ -1857,7 +1896,6 @@
             }, 1000);
         });
 
-        // Add sparkle animation
         const sparkleStyle = document.createElement('style');
         sparkleStyle.textContent = `
             @keyframes sparkleFloat {
@@ -1873,15 +1911,11 @@
         `;
         document.head.appendChild(sparkleStyle);
 
-        // Initialize any mobile-specific features
         if ('serviceWorker' in navigator) {
-            // Add PWA support if needed in the future
         }
 
-        // Add smooth scrolling for better UX
         document.documentElement.style.scrollBehavior = 'smooth';
 
-        // Add loading state management
         window.addEventListener('beforeunload', function() {
             document.body.style.opacity = '0.7';
             document.body.style.transform = 'scale(0.98)';
