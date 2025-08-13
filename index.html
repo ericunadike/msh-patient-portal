@@ -30,7 +30,7 @@
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             background: #f5f6f5;
             min-height: 100vh;
-            padding: 8px;
+            padding: 4px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -60,7 +60,7 @@
             background: rgba(255, 255, 255, 0.98);
             backdrop-filter: blur(20px);
             border-radius: 32px;
-            padding: 24px;
+            padding: 16px;
             max-width: 420px;
             width: 100%;
             box-shadow: 
@@ -82,16 +82,16 @@
 
         .hospital-header {
             text-align: center;
-            margin-bottom: 28px;
+            margin-bottom: 20px;
             position: relative;
         }
 
         .hospital-icon {
-            width: 80px;
-            height: 80px;
+            width: 70px;
+            height: 70px;
             background: #58CC02;
             border-radius: 50%;
-            margin: 0 auto 16px;
+            margin: 0 auto 12px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -115,7 +115,7 @@
 
         .hospital-icon::before {
             content: '🏥';
-            font-size: 36px;
+            font-size: 32px;
             animation: bounce 2s infinite;
         }
 
@@ -124,7 +124,7 @@
             position: absolute;
             top: -5px;
             right: -5px;
-            font-size: 20px;
+            font-size: 16px;
             animation: sparkle 1.5s infinite;
         }
 
@@ -141,9 +141,9 @@
 
         .hospital-header h1 {
             color: #58CC02;
-            font-size: 22px;
+            font-size: 20px;
             font-weight: 800;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
             letter-spacing: -0.5px;
         }
 
@@ -155,7 +155,7 @@
 
         .tab-navigation {
             display: flex;
-            margin-bottom: 28px;
+            margin-bottom: 20px;
             border-radius: 20px;
             background: rgba(88, 204, 2, 0.1);
             padding: 6px;
@@ -171,6 +171,11 @@
             box-shadow: 
                 0 4px 20px rgba(88, 204, 2, 0.4),
                 0 0 0 2px rgba(255, 255, 255, 0.5);
+            /* Fixed initial positioning */
+            width: 50%;
+            height: 52px;
+            left: 6px;
+            top: 6px;
         }
 
         .tab-btn {
@@ -232,13 +237,13 @@
         }
 
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 16px;
         }
 
         .form-row {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 16px;
+            gap: 12px;
         }
 
         .form-group label {
@@ -246,20 +251,17 @@
             margin-bottom: 8px;
             color: #2d3436;
             font-weight: 700;
-            font-size: 14px;
+            font-size: 15px;
             position: relative;
         }
 
+        /* Changed from sparkle to asterisk for required fields */
         .required::after {
-            content: '✨';
-            margin-left: 6px;
-            font-size: 12px;
-            animation: twinkle 2s infinite;
-        }
-
-        @keyframes twinkle {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.3; }
+            content: '*';
+            color: #e17055;
+            margin-left: 4px;
+            font-size: 16px;
+            font-weight: 800;
         }
 
         .form-input {
@@ -268,7 +270,7 @@
             border: 3px solid #e9ecef;
             border-radius: 16px;
             font-family: inherit;
-            font-size: 15px;
+            font-size: 16px;
             font-weight: 500;
             transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             background: rgba(255, 255, 255, 0.9);
@@ -290,7 +292,7 @@
         .form-input::placeholder {
             color: #a0a0a0;
             font-weight: 500;
-            font-size: 13px;
+            font-size: 14px;
         }
 
         .form-input.error {
@@ -306,7 +308,7 @@
 
         .error-message {
             color: #e17055;
-            font-size: 12px;
+            font-size: 13px;
             font-weight: 600;
             margin-top: 6px;
             display: none;
@@ -323,14 +325,15 @@
             border: 3px solid #e9ecef;
             border-radius: 16px;
             font-family: inherit;
-            font-size: 15px;
+            font-size: 16px;
             font-weight: 500;
             background: rgba(255, 255, 255, 0.9);
             color: #2d3436;
             cursor: pointer;
             transition: all 0.3s ease;
             appearance: none;
-            background-image: url('data:image/svg+xml;utf8,<svg fill="%2358CC02" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+            /* Fixed dropdown arrow */
+            background-image: url('data:image/svg+xml;utf8,<svg fill="%23636e72" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
             background-repeat: no-repeat;
             background-position: right 12px center;
             background-size: 24px;
@@ -343,11 +346,15 @@
                 0 0 0 4px rgba(88, 204, 2, 0.2),
                 0 8px 25px rgba(88, 204, 2, 0.15);
             transform: translateY(-2px);
+            /* Change arrow color on focus */
+            background-image: url('data:image/svg+xml;utf8,<svg fill="%2358CC02" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
         }
 
-        .form-select option:checked {
-            background: #58CC02;
-            color: white;
+        /* Remove green background from dropdown options */
+        .form-select option {
+            background: white;
+            color: #2d3436;
+            padding: 12px;
         }
 
         .checkbox-group {
@@ -404,7 +411,7 @@
 
         .checkbox-label {
             color: #636e72;
-            font-size: 14px;
+            font-size: 15px;
             font-weight: 500;
             cursor: pointer;
             line-height: 1.5;
@@ -456,7 +463,7 @@
 
         .payment-info p {
             color: #636e72;
-            font-size: 14px;
+            font-size: 15px;
             font-weight: 500;
             line-height: 1.6;
             word-wrap: break-word;
@@ -476,8 +483,8 @@
         }
 
         .question-section {
-            margin-bottom: 24px;
-            padding: 20px;
+            margin-bottom: 20px;
+            padding: 16px;
             background: rgba(88, 204, 2, 0.03);
             border-radius: 20px;
             border: 2px solid rgba(88, 204, 2, 0.1);
@@ -485,8 +492,8 @@
 
         .question-title {
             color: #2d3436;
-            margin-bottom: 20px;
-            font-size: 16px;
+            margin-bottom: 16px;
+            font-size: 17px;
             font-weight: 800;
             text-align: center;
             position: relative;
@@ -513,17 +520,18 @@
             50% { box-shadow: 0 0 20px rgba(88, 204, 2, 0.6); }
         }
 
+        /* Improved mobile rating grid with smaller margins */
         .rating-grid {
             display: grid;
             grid-template-columns: repeat(5, 1fr);
-            gap: 8px;
-            margin-bottom: 12px;
+            gap: 6px;
+            margin: 0 -8px 12px -8px; /* Negative margins to use more screen space */
         }
 
         .rating-option {
             aspect-ratio: 1;
             border: 3px solid #e9ecef;
-            border-radius: 20px;
+            border-radius: 16px;
             background: white;
             cursor: pointer;
             transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
@@ -531,64 +539,48 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            padding: 6px 2px;
+            padding: 8px 4px;
             position: relative;
             overflow: hidden;
         }
 
-        .rating-option::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: #58CC02;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
         .rating-option:hover {
-            transform: translateY(-5px) scale(1.05) rotate(2deg);
-            box-shadow: 0 12px 35px rgba(88, 204, 2, 0.25);
+            transform: translateY(-3px) scale(1.03) rotate(1deg);
+            box-shadow: 0 8px 25px rgba(88, 204, 2, 0.25);
             border-color: #58CC02;
         }
 
+        /* Removed extra green box - only border changes */
         .rating-option.selected {
             border-color: #58CC02;
-            background: #f8fffe;
-            transform: translateY(-3px) scale(1.1) rotate(-2deg);
-            box-shadow: 
-                0 12px 35px rgba(88, 204, 2, 0.3),
-                0 0 0 3px rgba(88, 204, 2, 0.2);
-        }
-
-        .rating-option.selected::before {
-            opacity: 0.1;
+            border-width: 4px;
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 0 8px 25px rgba(88, 204, 2, 0.3);
         }
 
         .rating-emoji {
-            font-size: 20px;
-            margin-bottom: 2px;
+            font-size: 22px;
+            margin-bottom: 4px;
             position: relative;
             z-index: 1;
             transition: transform 0.3s ease;
         }
 
         .rating-option.selected .rating-emoji {
-            transform: scale(1.2);
+            transform: scale(1.1);
             animation: celebrate 0.6s ease-out;
         }
 
         @keyframes celebrate {
             0% { transform: scale(1) rotate(0deg); }
-            25% { transform: scale(1.3) rotate(-10deg); }
-            50% { transform: scale(1.1) rotate(5deg); }
-            100% { transform: scale(1.2) rotate(0deg); }
+            25% { transform: scale(1.2) rotate(-5deg); }
+            50% { transform: scale(1.05) rotate(3deg); }
+            100% { transform: scale(1.1) rotate(0deg); }
         }
 
+        /* Improved mobile text size for rating labels */
         .rating-label {
-            font-size: 7px;
+            font-size: 10px;
             color: #636e72;
             font-weight: 700;
             text-align: center;
@@ -605,13 +597,14 @@
 
         .rating-option.selected .rating-label {
             color: #58CC02;
+            font-weight: 800;
         }
 
         .rating-scale {
             display: flex;
             justify-content: space-between;
             margin-top: 12px;
-            font-size: 11px;
+            font-size: 12px;
             color: #a0a0a0;
             font-weight: 600;
             word-wrap: break-word;
@@ -619,15 +612,15 @@
         }
 
         .comment-section {
-            margin-bottom: 24px;
+            margin-bottom: 20px;
         }
 
         .comment-section label {
             display: block;
-            margin-bottom: 12px;
+            margin-bottom: 8px;
             color: #2d3436;
             font-weight: 700;
-            font-size: 14px;
+            font-size: 15px;
             word-wrap: break-word;
             overflow-wrap: break-word;
         }
@@ -638,7 +631,7 @@
             border: 3px solid #e9ecef;
             border-radius: 16px;
             font-family: inherit;
-            font-size: 15px;
+            font-size: 16px;
             font-weight: 500;
             transition: all 0.3s ease;
             background: rgba(255, 255, 255, 0.9);
@@ -666,12 +659,12 @@
         .comment-input::placeholder, .comment-textarea::placeholder {
             color: #a0a0a0;
             font-weight: 500;
-            font-size: 13px;
+            font-size: 14px;
         }
 
         .submit-section {
             text-align: center;
-            margin-top: 28px;
+            margin-top: 24px;
         }
 
         .submit-btn {
@@ -740,7 +733,7 @@
         .thank-you, .registration-success {
             display: none;
             text-align: center;
-            padding: 40px 20px;
+            padding: 32px 16px;
             animation: celebrationPop 1s cubic-bezier(0.68, -0.55, 0.265, 1.55);
         }
 
@@ -751,11 +744,11 @@
         }
 
         .success-icon, .success-animation {
-            width: 100px;
-            height: 100px;
+            width: 80px;
+            height: 80px;
             border-radius: 50%;
             background: #58CC02;
-            margin: 0 auto 24px;
+            margin: 0 auto 20px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -773,7 +766,7 @@
 
         .success-icon::after, .success-animation::after {
             content: '🎉';
-            font-size: 40px;
+            font-size: 32px;
             animation: rotate 2s linear infinite;
         }
 
@@ -785,7 +778,7 @@
         .thank-you h2, .registration-success h2 {
             color: #58CC02;
             margin-bottom: 16px;
-            font-size: 28px;
+            font-size: 24px;
             font-weight: 800;
             animation: textPop 1s ease-out 0.5s both;
             word-wrap: break-word;
@@ -799,7 +792,7 @@
 
         .thank-you p, .registration-success p {
             color: #636e72;
-            font-size: 16px;
+            font-size: 15px;
             font-weight: 500;
             line-height: 1.6;
             max-width: 320px;
@@ -812,7 +805,7 @@
         .progress-indicator {
             display: flex;
             justify-content: center;
-            margin-bottom: 24px;
+            margin-bottom: 20px;
             gap: 12px;
         }
 
@@ -830,35 +823,41 @@
             box-shadow: 0 4px 15px rgba(88, 204, 2, 0.3);
         }
 
+        /* Enhanced mobile optimizations */
         @media (max-width: 480px) {
             body { 
-                padding: 8px;
-                background-attachment: fixed;
+                padding: 2px;
             }
             
             .main-container { 
-                padding: 20px; 
+                padding: 12px; 
                 border-radius: 24px; 
-                margin: 4px;
+                margin: 2px;
+                max-width: calc(100vw - 4px);
             }
             
             .hospital-header h1 { 
-                font-size: 20px; 
+                font-size: 18px; 
             }
             
             .hospital-icon {
-                width: 70px;
-                height: 70px;
+                width: 60px;
+                height: 60px;
+                margin-bottom: 8px;
             }
             
             .hospital-icon::before {
-                font-size: 32px;
+                font-size: 28px;
             }
             
             .tab-btn { 
-                padding: 14px 8px; 
+                padding: 12px 6px; 
                 font-size: 11px;
                 gap: 4px;
+            }
+            
+            .tab-indicator {
+                height: 44px;
             }
             
             .tab-icon { 
@@ -867,29 +866,30 @@
             
             .form-row { 
                 grid-template-columns: 1fr; 
-                gap: 12px; 
+                gap: 10px; 
             }
             
             .question-title { 
-                font-size: 14px; 
+                font-size: 15px; 
             }
             
             .rating-grid { 
-                gap: 4px; 
+                gap: 4px;
+                margin: 0 -4px 10px -4px; /* Even smaller margins on mobile */
             }
             
             .rating-option { 
-                padding: 4px 1px; 
-                border-radius: 16px;
+                padding: 6px 2px; 
+                border-radius: 14px;
             }
             
             .rating-emoji { 
-                font-size: 16px; 
-                margin-bottom: 1px;
+                font-size: 18px; 
+                margin-bottom: 2px;
             }
             
             .rating-label { 
-                font-size: 6px; 
+                font-size: 8px; 
                 line-height: 1.0;
             }
             
@@ -897,11 +897,13 @@
                 min-height: 80px; 
                 padding: 14px; 
                 margin-bottom: 12px; 
+                font-size: 16px;
             }
             
             .comment-input { 
                 padding: 14px; 
                 margin-bottom: 12px; 
+                font-size: 16px;
             }
             
             .submit-btn { 
@@ -911,74 +913,107 @@
             }
             
             .payment-info {
-                padding: 16px;
+                padding: 14px;
                 border-radius: 16px;
             }
             
             .question-section {
-                padding: 16px;
+                padding: 12px;
                 border-radius: 16px;
+                margin-bottom: 16px;
             }
             
             .success-icon, .success-animation {
-                width: 80px;
-                height: 80px;
+                width: 70px;
+                height: 70px;
             }
             
             .success-icon::after, .success-animation::after {
-                font-size: 32px;
+                font-size: 28px;
             }
             
             .thank-you h2, .registration-success h2 {
-                font-size: 24px;
+                font-size: 20px;
+            }
+            
+            .form-input, .form-select {
+                font-size: 16px; /* Prevent zoom on iOS */
+                padding: 14px 16px;
             }
             
             .form-input::placeholder, .comment-input::placeholder, .comment-textarea::placeholder {
-                font-size: 12px;
+                font-size: 14px;
             }
             
             .rating-scale {
-                font-size: 9px;
+                font-size: 10px;
+                margin-top: 8px;
+            }
+            
+            .form-group label {
+                font-size: 14px;
+            }
+            
+            .checkbox-label {
+                font-size: 14px;
+            }
+            
+            .payment-info p {
+                font-size: 14px;
             }
         }
 
         @media (max-width: 360px) {
             .main-container {
-                padding: 16px;
+                padding: 10px;
             }
             
             .hospital-header h1 {
-                font-size: 18px;
+                font-size: 16px;
             }
             
             .tab-btn {
-                padding: 12px 6px;
+                padding: 10px 4px;
                 font-size: 10px;
                 gap: 2px;
             }
             
+            .tab-indicator {
+                height: 40px;
+            }
+            
             .rating-grid {
                 gap: 2px;
+                margin: 0 -2px 8px -2px;
             }
             
             .rating-option {
-                padding: 2px 1px;
+                padding: 4px 1px;
+                border-radius: 12px;
             }
             
             .rating-emoji {
-                font-size: 14px;
+                font-size: 16px;
             }
             
             .rating-label {
-                font-size: 5px;
+                font-size: 7px;
             }
             
             .rating-scale {
-                font-size: 8px;
+                font-size: 9px;
             }
             
             .form-input::placeholder, .comment-input::placeholder, .comment-textarea::placeholder {
-                font-size: 11px;
+                font-size: 13px;
+            }
+            
+            .question-title {
+                font-size: 14px;
+            }
+            
+            .form-group label {
+                font-size: 13px;
             }
         }
 
@@ -1045,10 +1080,6 @@
         .rating-option {
             background: white;
             border-color: #e9ecef;
-        }
-        
-        .rating-option.selected {
-            background: #f8fffe;
         }
         
         .question-section {
@@ -1326,14 +1357,13 @@
                 content.classList.toggle('active', content.id === `${tabName}Tab`);
             });
 
+            // Fixed tab indicator positioning
             const activeBtn = document.querySelector(`[data-tab="${tabName}"]`);
-            const rect = activeBtn.getBoundingClientRect();
             const containerRect = activeBtn.parentElement.getBoundingClientRect();
+            const btnRect = activeBtn.getBoundingClientRect();
             
-            tabIndicator.style.width = `${rect.width}px`;
-            tabIndicator.style.height = `${rect.height}px`;
-            tabIndicator.style.left = `${rect.left - containerRect.left}px`;
-            tabIndicator.style.top = `${rect.top - containerRect.top}px`;
+            const leftOffset = btnRect.left - containerRect.left - 6; // Account for container padding
+            tabIndicator.style.transform = `translateX(${leftOffset}px)`;
 
             currentTab = tabName;
 
@@ -1342,7 +1372,10 @@
             }
         }
 
-        setTimeout(() => switchTab('feedback'), 100);
+        // Initialize the tab indicator position
+        setTimeout(() => {
+            switchTab('feedback');
+        }, 100);
 
         tabButtons.forEach(btn => {
             btn.addEventListener('click', () => {
