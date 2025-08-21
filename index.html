@@ -171,7 +171,6 @@
             box-shadow: 
                 0 4px 20px rgba(88, 204, 2, 0.4),
                 0 0 0 2px rgba(255, 255, 255, 0.5);
-            /* Fixed initial positioning */
             width: 50%;
             height: 52px;
             left: 6px;
@@ -227,13 +226,13 @@
 
         @keyframes slideInUp {
             from { 
-                opacity: 0; 
-                transform: translateY(30px) scale(0.95); 
-            }
+                opacity: 0;
+                transform: translateY(30px) scale(0.95);
+             }
             to { 
-                opacity: 1; 
-                transform: translateY(0) scale(1); 
-            }
+                opacity: 1;
+                transform: translateY(0) scale(1);
+             }
         }
 
         .form-group {
@@ -255,7 +254,6 @@
             position: relative;
         }
 
-        /* Changed from sparkle to asterisk for required fields */
         .required::after {
             content: '*';
             color: #e17055;
@@ -283,10 +281,10 @@
             outline: none;
             border-color: #58CC02;
             background: white;
-            box-shadow: 
-                0 0 0 4px rgba(88, 204, 2, 0.2),
-                0 8px 25px rgba(88, 204, 2, 0.15);
-            transform: translateY(-2px) scale(1.01);
+        }
+
+        .form-input:focus-visible {
+            outline: none;
         }
 
         .form-input::placeholder {
@@ -332,25 +330,19 @@
             cursor: pointer;
             transition: all 0.3s ease;
             appearance: none;
-            /* Fixed dropdown arrow */
-            background-image: url('data:image/svg+xml;utf8,<svg fill="%23636e72" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
-            background-repeat: no-repeat;
-            background-position: right 12px center;
-            background-size: 24px;
+            padding-right: 18px;
         }
 
         .form-select:focus {
             outline: none;
             border-color: #58CC02;
-            box-shadow: 
-                0 0 0 4px rgba(88, 204, 2, 0.2),
-                0 8px 25px rgba(88, 204, 2, 0.15);
-            transform: translateY(-2px);
-            /* Change arrow color on focus */
-            background-image: url('data:image/svg+xml;utf8,<svg fill="%2358CC02" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+            background: white;
         }
 
-        /* Remove green background from dropdown options */
+        .form-select:focus-visible {
+            outline: none;
+        }
+
         .form-select option {
             background: white;
             color: #2d3436;
@@ -393,7 +385,6 @@
             background: #58CC02;
             border-color: #58CC02;
             transform: scale(1.1) rotate(5deg);
-            box-shadow: 0 4px 15px rgba(88, 204, 2, 0.3);
         }
 
         .custom-checkbox.checked::after {
@@ -520,12 +511,11 @@
             50% { box-shadow: 0 0 20px rgba(88, 204, 2, 0.6); }
         }
 
-        /* Improved mobile rating grid with smaller margins */
         .rating-grid {
             display: grid;
             grid-template-columns: repeat(5, 1fr);
             gap: 6px;
-            margin: 0 -8px 12px -8px; /* Negative margins to use more screen space */
+            margin: 0 -8px 12px -8px;
         }
 
         .rating-option {
@@ -550,12 +540,10 @@
             border-color: #58CC02;
         }
 
-        /* Removed extra green box - only border changes */
         .rating-option.selected {
             border-color: #58CC02;
             border-width: 4px;
             transform: translateY(-2px) scale(1.05);
-            box-shadow: 0 8px 25px rgba(88, 204, 2, 0.3);
         }
 
         .rating-emoji {
@@ -578,7 +566,6 @@
             100% { transform: scale(1.1) rotate(0deg); }
         }
 
-        /* Improved mobile text size for rating labels */
         .rating-label {
             font-size: 10px;
             color: #636e72;
@@ -650,10 +637,6 @@
             outline: none;
             border-color: #58CC02;
             background: white;
-            box-shadow: 
-                0 0 0 4px rgba(88, 204, 2, 0.2),
-                0 8px 25px rgba(88, 204, 2, 0.15);
-            transform: translateY(-2px);
         }
 
         .comment-input::placeholder, .comment-textarea::placeholder {
@@ -823,22 +806,21 @@
             box-shadow: 0 4px 15px rgba(88, 204, 2, 0.3);
         }
 
-        /* Enhanced mobile optimizations */
         @media (max-width: 480px) {
             body { 
                 padding: 2px;
             }
             
-            .main-container { 
-                padding: 12px; 
-                border-radius: 24px; 
+            .main-container {
+                padding: 12px;
+                border-radius: 24px;
                 margin: 2px;
                 max-width: calc(100vw - 4px);
             }
             
-            .hospital-header h1 { 
-                font-size: 18px; 
-            }
+            .hospital-header h1 {
+                font-size: 18px;
+             }
             
             .hospital-icon {
                 width: 60px;
@@ -850,8 +832,8 @@
                 font-size: 28px;
             }
             
-            .tab-btn { 
-                padding: 12px 6px; 
+            .tab-btn {
+                padding: 12px 6px;
                 font-size: 11px;
                 gap: 4px;
             }
@@ -860,55 +842,55 @@
                 height: 44px;
             }
             
-            .tab-icon { 
-                font-size: 16px; 
-            }
+            .tab-icon {
+                font-size: 16px;
+             }
             
-            .form-row { 
-                grid-template-columns: 1fr; 
-                gap: 10px; 
-            }
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 10px;
+             }
             
-            .question-title { 
-                font-size: 15px; 
-            }
+            .question-title {
+                font-size: 15px;
+             }
             
-            .rating-grid { 
+            .rating-grid {
                 gap: 4px;
-                margin: 0 -4px 10px -4px; /* Even smaller margins on mobile */
+                margin: 0 -4px 10px -4px;
             }
             
-            .rating-option { 
-                padding: 6px 2px; 
+            .rating-option {
+                padding: 6px 2px;
                 border-radius: 14px;
             }
             
-            .rating-emoji { 
-                font-size: 18px; 
+            .rating-emoji {
+                font-size: 18px;
                 margin-bottom: 2px;
             }
             
-            .rating-label { 
-                font-size: 8px; 
+            .rating-label {
+                font-size: 8px;
                 line-height: 1.0;
             }
             
-            .comment-textarea { 
-                min-height: 80px; 
-                padding: 14px; 
-                margin-bottom: 12px; 
+            .comment-textarea {
+                min-height: 80px;
+                padding: 14px;
+                margin-bottom: 12px;
                 font-size: 16px;
             }
             
-            .comment-input { 
-                padding: 14px; 
-                margin-bottom: 12px; 
+            .comment-input {
+                padding: 14px;
+                margin-bottom: 12px;
                 font-size: 16px;
             }
             
-            .submit-btn { 
-                padding: 16px 20px; 
-                font-size: 14px; 
+            .submit-btn {
+                padding: 16px 20px;
+                font-size: 14px;
                 border-radius: 18px;
             }
             
@@ -937,8 +919,12 @@
             }
             
             .form-input, .form-select {
-                font-size: 16px; /* Prevent zoom on iOS */
+                font-size: 16px;
                 padding: 14px 16px;
+            }
+            
+            .form-select {
+                padding-right: 16px;
             }
             
             .form-input::placeholder, .comment-input::placeholder, .comment-textarea::placeholder {
@@ -1015,6 +1001,10 @@
             .form-group label {
                 font-size: 13px;
             }
+            
+            .form-select {
+                padding-right: 14px;
+            }
         }
 
         @media (prefers-reduced-motion: reduce) {
@@ -1030,8 +1020,6 @@
         }
 
         .tab-btn:focus-visible,
-        .form-input:focus-visible,
-        .form-select:focus-visible,
         .rating-option:focus-visible,
         .submit-btn:focus-visible,
         .custom-checkbox:focus-visible {
@@ -1093,7 +1081,7 @@
         <div class="hospital-header">
             <div class="hospital-icon"></div>
             <h1>Magodo Specialist Hospital</h1>
-            <p>Welcome to our patient portal 🌟</p>
+            <p>Welcome to our patient portal</p>
         </div>
 
         <div class="tab-navigation">
@@ -1357,12 +1345,11 @@
                 content.classList.toggle('active', content.id === `${tabName}Tab`);
             });
 
-            // Fixed tab indicator positioning
             const activeBtn = document.querySelector(`[data-tab="${tabName}"]`);
             const containerRect = activeBtn.parentElement.getBoundingClientRect();
             const btnRect = activeBtn.getBoundingClientRect();
             
-            const leftOffset = btnRect.left - containerRect.left - 6; // Account for container padding
+            const leftOffset = btnRect.left - containerRect.left - 6;
             tabIndicator.style.transform = `translateX(${leftOffset}px)`;
 
             currentTab = tabName;
@@ -1372,7 +1359,6 @@
             }
         }
 
-        // Initialize the tab indicator position
         setTimeout(() => {
             switchTab('feedback');
         }, 100);
@@ -1829,7 +1815,10 @@
                 priorityEmoji = '🟢';
             }
 
-            let analysisDetails = ` DETAILED ANALYSIS: • Overall Score: ${overallScore}/5.0 • Text Sentiment: ${textAnalysis.sentiment.charAt(0).toUpperCase() + textAnalysis.sentiment.slice(1)} (${textAnalysis.score}/5) • Priority Level: ${priority} ${priorityEmoji}`;
+            let analysisDetails = ` DETAILED ANALYSIS:
+• Overall Score: ${overallScore}/5.0
+• Text Sentiment: ${textAnalysis.sentiment.charAt(0).toUpperCase() + textAnalysis.sentiment.slice(1)} (${textAnalysis.score}/5)
+• Priority Level: ${priority} ${priorityEmoji}`;
 
             if (textAnalysis.issues.length > 0) {
                 analysisDetails += `\n• Issues Mentioned: ${textAnalysis.issues.join(', ')}`;
@@ -1932,13 +1921,13 @@
         const sparkleStyle = document.createElement('style');
         sparkleStyle.textContent = `
             @keyframes sparkleFloat {
-                0% { 
-                    opacity: 1; 
-                    transform: scale(0) rotate(0deg) translateY(0); 
+                0% {
+                    opacity: 1;
+                    transform: scale(0) rotate(0deg) translateY(0);
                 }
-                100% { 
-                    opacity: 0; 
-                    transform: scale(1.5) rotate(180deg) translateY(-50px); 
+                100% {
+                    opacity: 0;
+                    transform: scale(1.5) rotate(180deg) translateY(-50px);
                 }
             }
         `;
@@ -1955,4 +1944,4 @@
         });
     </script>
 </body>
-</html>
+    </html>
